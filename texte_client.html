@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client - Locazen</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .hidden { display: none; }
+    .fade-in { animation: fadeIn 0.4s ease-in-out; }
+    @keyframes fadeIn { 
+      from {opacity:0; transform:translateY(10px);} 
+      to {opacity:1; transform:translateY(0);} 
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<div class="flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-green-500 text-white h-screen flex flex-col fixed">
+    <div class="flex justify-between items-center border-b border-green-400 py-6 px-4">
+      <img src="/src/assets/images/Logo moderne de Locazen avec maison (1).png" 
+           alt="locazen" class="h-[70px] w-[90px] rounded-2xl">
+      <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+           alt="Cliente" class="w-14 h-14 rounded-full object-cover">
+    </div>
+
+    <nav class="flex-1 p-4 space-y-3">
+      <button onclick="showSection('home')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">🏠 Accueil</button>
+      <button onclick="showSection('mesReservations')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">📦 Mes Réservations</button>
+      <button onclick="showSection('profil')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">👤 Mon Profil</button>
+      <button onclick="showSection('transactions')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">💳 Transactions</button>
+    </nav>
+
+    <div class="p-4 border-t border-green-400">
+      <button class="w-full bg-red-500 py-2 rounded-lg hover:bg-red-600">Déconnexion</button>
+    </div>
+  </aside>
+
+  <!-- Contenu principal -->
+  <main class="flex-1 p-6 ml-64 overflow-y-auto">
+
+    <!-- Accueil / Liste des biens -->
+    <section id="home" class="section fade-in">
+      <h1 class="text-2xl font-bold mb-6 text-gray-700">Découvrez nos biens</h1>
+
+      <!-- Recherche -->
+      <div class="flex mb-6 space-x-4">
+        <input type="text" placeholder="Rechercher un bien..." class="flex-1 p-2 border rounded-lg">
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg">Rechercher</button>
+      </div>
+
+      <!-- Catégories -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-6">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Bien le mieux situé</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Bien le plus grand</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Bien le plus récent</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Studios</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Chambre moderne</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Appartements</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Bureaux</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">Boutiques</button>
+      </div>
+
+      <!-- Liste des biens -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Exemple de carte bien -->
+        <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
+          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
+          <p class="text-gray-600 mb-1">📍 Yaoundé</p>
+          <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>
+          <div class="mt-auto flex justify-between">
+            <button class="bg-green-500 text-white px-3 py-1 rounded-lg">Réserver</button>
+            <button class="bg-orange-500 text-white px-3 py-1 rounded-lg">Laisser un avis</button>
+          </div>
+        </div>
+
+        <!-- Dupliquer cette carte pour chaque bien -->
+      </div>
+    </section>
+
+    <!-- Mes Réservations -->
+    <section id="mesReservations" class="section hidden">
+      <h2 class="text-xl font-bold mb-4">Mes Réservations</h2>
+      <ul class="bg-white rounded-2xl shadow-lg divide-y">
+        <li class="py-3 px-4 flex justify-between">
+          <span>Appartement Yaoundé</span>
+          <span class="text-green-600 font-semibold">Réservé</span>
+        </li>
+        <li class="py-3 px-4 flex justify-between">
+          <span>Villa Douala</span>
+          <span class="text-green-600 font-semibold">Réservé</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Profil -->
+    <section id="profil" class="section hidden">
+      <h2 class="text-xl font-bold mb-4">Mon Profil</h2>
+      <form class="bg-white p-6 rounded-2xl shadow-lg space-y-4">
+        <div>
+          <label class="block text-gray-600">Nom</label>
+          <input type="text" class="w-full border rounded-lg p-2" value="Jean Client">
+        </div>
+        <div>
+          <label class="block text-gray-600">Email</label>
+          <input type="email" class="w-full border rounded-lg p-2" value="client@mail.com">
+        </div>
+        <div>
+          <label class="block text-gray-600">Mot de passe</label>
+          <input type="password" class="w-full border rounded-lg p-2" value="********">
+        </div>
+        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg">Mettre à jour</button>
+      </form>
+    </section>
+
+    <!-- Transactions -->
+    <section id="transactions" class="section hidden">
+      <h2 class="text-xl font-bold mb-4">Mes Transactions</h2>
+      <ul class="bg-white rounded-2xl shadow-lg divide-y">
+        <li class="py-3 px-4 flex justify-between">
+          <span>Réservation Appartement Yaoundé</span>
+          <span class="text-green-600 font-semibold">1 500 000 FCFA</span>
+        </li>
+        <li class="py-3 px-4 flex justify-between">
+          <span>Réservation Villa Douala</span>
+          <span class="text-green-600 font-semibold">3 500 000 FCFA</span>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+    const section = document.getElementById(sectionId);
+    section.classList.remove('hidden');
+    section.classList.add('fade-in');
+    setTimeout(() => section.classList.remove('fade-in'), 500);
+  }
+</script>
+
+</body>
+</html>

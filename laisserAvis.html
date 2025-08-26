@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laisser un avis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+<div class="flex justify-center items-center min-h-screen">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-lg">
+    <h1 class="text-2xl font-bold mb-6 text-gray-700 text-center">Laisser un avis</h1>
+
+    <form class="space-y-4">
+      <!-- Sélection du bien -->
+      <div>
+        <label class="block text-gray-600 mb-2">Bien concerné</label>
+        <select class="w-full border rounded-lg p-2">
+          <option>Appartement Yaoundé</option>
+          <option>Villa Douala</option>
+          <option>Studio Bafoussam</option>
+        </select>
+      </div>
+
+      <!-- Note par étoiles -->
+      <div>
+        <label class="block text-gray-600 mb-2">Note</label>
+        <div class="flex space-x-1">
+          <button type="button" class="star text-gray-400 text-2xl">★</button>
+          <button type="button" class="star text-gray-400 text-2xl">★</button>
+          <button type="button" class="star text-gray-400 text-2xl">★</button>
+          <button type="button" class="star text-gray-400 text-2xl">★</button>
+          <button type="button" class="star text-gray-400 text-2xl">★</button>
+        </div>
+      </div>
+
+      <!-- Commentaire -->
+      <div>
+        <label class="block text-gray-600 mb-2">Commentaire</label>
+        <textarea class="w-full border rounded-lg p-2 h-24" placeholder="Votre avis ici..."></textarea>
+      </div>
+
+      <!-- Bouton envoyer -->
+      <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700">Envoyer l'avis</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Gestion des étoiles
+  const stars = document.querySelectorAll('.star');
+  let rating = 0;
+
+  stars.forEach((star, idx) => {
+    star.addEventListener('click', () => {
+      rating = idx + 1;
+      stars.forEach((s, i) => {
+        s.classList.toggle('text-yellow-400', i < rating);
+        s.classList.toggle('text-gray-400', i >= rating);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>

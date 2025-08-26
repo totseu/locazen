@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="src/css/output.css">
+    <title>Document</title>
+</head>
+<body>
+
+     <header class=" fixed w-screen z-50 -mt-20">
+    <div class="flex justify-between items-center py-4 px-6 md:px-20">
+        <a href="/index.html"><img src="/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
+       
+</header>
+
+
+    <!-- En-tête -->  
+    <div class="text-center mb-8 mt-24">
+        <h1 class="text-3xl font-bold mb-20 text-blue-400 uppercase"> voir tarif de payement proprietaire</h1>
+     
+      <p class="text-gray-600">Activez votre compte pour publier autant de biens que vous voulez.</p>
+    </div>
+
+    <!-- Section Plans -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <!-- Plan Mensuel -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg border-2 border-transparent hover:border-blue-500 transition cursor-pointer" id="plan-mensuel">
+        <h2 class="text-xl font-semibold mb-2">Mensuel</h2>
+        <p class="text-gray-700 mb-4">10 000 FCFA / mois<br>Renouvellement automatique chaque mois, accès illimité aux publications.</p>
+      </div>
+
+      <!-- Plan Annuel -->
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg border-2 border-transparent hover:border-blue-500 transition cursor-pointer" id="plan-annuel">
+        <h2 class="text-xl font-semibold mb-2">Annuel</h2>
+        <p class="text-gray-700 mb-4">100 000 FCFA / an<br>Économie par rapport au plan mensuel, accès illimité aux publications.</p>
+      </div>
+    </div>
+
+    <!-- Section Moyen de paiement -->
+    <div class="bg-white p-6 rounded-xl shadow mb-8">
+      <h2 class="text-2xl font-semibold mb-4">Choisissez votre moyen de paiement</h2>
+      <div class="flex flex-col gap-4">
+        <label class="flex items-center gap-2">
+          <input type="radio" name="payment" value="orange" class="form-radio">
+          <span>Orange Money (Cameroun)</span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="payment" value="mtn" class="form-radio">
+          <span>MTN Mobile Money (Cameroun)</span>
+        </label>
+        <label class="flex items-center gap-2">
+          <input type="radio" name="payment" value="carte" class="form-radio">
+          <span>Carte bancaire</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Formulaire de paiement par carte -->
+    <div id="card-form" class="bg-white p-6 rounded-xl shadow hidden">
+      <h2 class="text-2xl font-semibold mb-4">Détails de votre carte</h2>
+      <form>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2">Nom sur la carte</label>
+          <input type="text" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-2">Numéro de carte</label>
+          <input type="text" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+        <div class="flex gap-4 mb-4">
+          <div class="flex-1">
+            <label class="block text-gray-700 mb-2">Date d'expiration</label>
+            <input type="text" placeholder="MM/AA" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="flex-1">
+            <label class="block text-gray-700 mb-2">CVV</label>
+            <input type="text" class="w-full border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+        </div>
+        <button class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700">Payer maintenant</button>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>

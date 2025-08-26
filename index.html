@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>locazen</title>
+</head> 
+<body class="">
+    <header class="">
+        <div class="">
+        <nav class="flex justify-between w-screen  fixed z-50 bg-blue-700 top-0 " >
+            <div class="">
+                <img src="/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="locazen" class="h-[70px] w-[90px] rounded-2xl md:ml-20">
+            </div>
+
+             <button id="amberger" class="md:hidden text-4xl mr-5"><i class="fa-solid fa-bars"></i></button>
+            
+           
+            <div class="justify-center gap-5 mt-5 hidden md:flex md:ml-5">
+                <ul><a href="/proprietaire.html" class="  text-blue-400">Acceuill</a></ul>
+                <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
+                <ul><a href="/a_propos.html" class="text-white">A propos</a></ul>
+                <ul><a href="/contact.html" class="text-white">Contact</a></ul>
+                <ul><a href="/Tarief.html" class="text-white">Tarief</a></ul>
+            </div>
+            <div class="mt-5 mr-20 hidden md:block">
+  <!-- Menu déroulant qui redirige automatiquement -->
+  <select 
+    class="pl-5 pr-5 pt-1 pb-1 bg-amber-500 rounded-md text-white hover:bg-amber-600" 
+    name="choix"
+    onchange="if(this.value) window.location.href=this.value">
+    
+    <option value="">Choisissez un rôle</option>
+    <option value="/s'incristion_client.html">Client</option>
+    <option value="/s'incristion_proprietaire.html">Propriétaire</option>
+  </select>
+
+  <!-- Bouton connexion -->
+  <a href="/connexion.html" 
+     class="pl-5 pr-5 pt-1 pb-1 bg-amber-500 rounded-md text-white inline-block ml-2 hover:bg-amber-600">
+     Se connecter
+  </a>
+</div>
+
+
+        </nav>
+        </div>
+    </header>
+
+    <div class="h-18"> </div>
+    <div class="relative h-screen">
+      
+        <div class="absolute inset-0 bg-[url('/src/assets/images/fond1.jpg')] bg-cover bg-center h-[75vh]   ">
+         
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))]"></div>
+             <div id="menu" class="md:hidden  scale-0 bg-black w-[45%] ml-52 text-center z-50 p-10 px-10 rounded-3xl fixed transition-all duration-[1s] ease-in-out transform origin-top-right">
+                <ul><a href="/proprietaire.html" class="  text-blue-400">Acceuill</a></ul>
+                <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
+                <ul><a href="/a_propos.html" class="text-white">A propos</a></ul>
+                <ul><a href="/contact.html" class="text-white">Contact</a></ul>
+                <ul><a href="/Tarief.html" class="text-white">Tarief</a></ul>
+                <ul><a href="/s'incristion_client.html" class="text-white">client</a></ul>
+                <ul><a href="/s'incristion_client.html" class="text-white">Propriétaire</a></ul>
+                <ul><a href="/connexion.html" class="text-white">connexion</a></ul>
+            </div>
+              <script>
+                const amberger = document.getElementById("amberger");
+                const  menu = document.getElementById("menu");
+                amberger.addEventListener("click", ()=> {
+                  menu.classList.toggle("scale-0");
+                });
+
+             </script>
+
+
+            <h1 class="relative text-center md:top-1/3 text-5xl text-white mb-5 left-10 w-[80%] md:left-32">Votre futur logement n'est qu'à un clic.
+Explorez. Réservez. Emménagez.</h1>
+            <p class="relative text-center text-[#f0ebeb] md:top-1/3 text-2xl w-['60%']">trouver votre logement ideal en toute simplicite - Etudiant ,familles,voyageur,et business tous sont les bienvenus sur locazen </p> 
+        </div>
+    </div>
+  </div>
+</div>
+ 
+    <!--barre de recherche -->
+     <div class="container mx-auto bg-[#98c4f9] text-center p-7 relative -top-56 border border-white rounded-2xl w-[70%] ">
+        <form  action="">
+            <label for="localisation"> localisation :</label>
+            <input type="text" class=" border border-white md:mr-10 font-medium text-center">
+            <label for="type de logement">type de logement :</label>
+             <select name="choix" class="border border-white px-8  font-medium mr-1 text-center ">
+                                <option>appartement</option>
+                                <option>chambre</option>
+                                <option>studio</option>
+                                <option>bureau</option>
+                                <option>Maison</option>
+                            </select>
+            <label for="date">date :</label>
+            <input type="datetime-local" class="border border-white font-medium text-center">
+            <button><a href="#" class=" bg-blue-600 p-2 relative md:left-6 rounded-2xl top-4 md:top-0">  <i class="fa-solid fa-magnifying-glass"></i> recherche</a></button>
+        </form>
+     </div>
+
+     <!--categories de logement -->
+
+
+
+  <section class="py-10 -mt-60 ">
+    <div class="max-w-5xl mx-auto">
+      <!-- Titre + Boutons -->
+      <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl font-bold text-blue-700">Catégories de Logements</h2>
+        <div class="flex space-x-2">
+          <button id="prev" class="bg-white shadow-md p-2 rounded-full hover:bg-gray-200">
+            ◀
+          </button>
+          <button id="next" class="bg-white shadow-md p-2 rounded-full hover:bg-gray-200">
+            ▶
+          </button>
+        </div>
+      </div>
+
+      <!-- Carrousel -->
+      <div id="carousel" class="flex overflow-x-auto space-x-4 scroll-smooth no-scrollbar">
+        
+        <!-- Carte -->
+        <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="/src/assets/images/photo ville.jpg" alt="Appartement" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg">Appartement</h3>
+            <p class="text-gray-600 text-sm">Confort et modernité au cœur de la ville.</p>
+          </div>
+        </div>
+
+        <!-- Carte -->
+        <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="/src/assets/images/photo ville.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg">Villa</h3>
+            <p class="text-gray-600 text-sm">Espace et luxe pour vos séjours.</p>
+          </div>
+        </div>
+
+        <!-- Carte -->
+        <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="/src/assets/images/photo ville.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg">Boutique</h3>
+            <p class="text-gray-600 text-sm">Parfait pour les commercants.</p>
+          </div>
+        </div>
+
+        <!-- Carte -->
+        <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="/src/assets/images/photo ville.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg">Bureau</h3>
+            <p class="text-gray-600 text-sm">parfait pour les entreprises.</p>
+          </div>
+        </div>
+
+        <!-- Carte -->
+        <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="/src/assets/images/photo ville.jpg" alt="Studio" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg">Studio</h3>
+            <p class="text-gray-600 text-sm">Idéal pour les courts séjours.</p>
+          </div>
+        </div>
+
+        <!-- Carte -->
+        <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
+          <img src="/src/assets/images/photo ville.jpg" alt="Maison" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-bold text-lg">Maison</h3>
+            <p class="text-gray-600 text-sm">Parfait pour les familles.</p>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Cacher la barre de scroll */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <script>
+    const carousel = document.getElementById('carousel');
+    const next = document.getElementById('next');
+    const prev = document.getElementById('prev');
+
+    next.addEventListener('click', () => {
+      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    });
+
+    prev.addEventListener('click', () => {
+      carousel.scrollBy({ left: -300, behavior: 'smooth' });
+    });
+  </script>
+
+
+
+<!-- Section Statistiques avec décompte au scroll -->
+<section id="stats" class="py-12 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold text-blue-700 mb-10">Nos chiffres clés</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- Biens publiés -->
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <h3 class="text-4xl font-extrabold text-blue-600 mb-2 counter" data-target="1250">0</h3>
+        <p class="text-gray-600">Biens publiés</p>
+      </div>
+      
+      <!-- Biens loués/achetés -->
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <h3 class="text-4xl font-extrabold text-blue-600 mb-2 counter" data-target="860">0</h3>
+        <p class="text-gray-600">Biens loués/achetés</p>
+      </div>
+      
+      <!-- Propriétaires actifs -->
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <h3 class="text-4xl font-extrabold text-blue-600 mb-2 counter" data-target="320">0</h3>
+        <p class="text-gray-600">Propriétaires actifs</p>
+      </div>
+      
+      <!-- Clients satisfaits -->
+      <div class="bg-white shadow-lg rounded-lg p-6 hover:shadow-xl transition">
+        <h3 class="text-4xl font-extrabold text-blue-600 mb-2 counter" data-target="2100">0</h3>
+        <p class="text-gray-600">Clients satisfaits</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Script pour déclencher le décompte au scroll -->
+<script>
+  const counters = document.querySelectorAll('.counter');
+  let counted = false;
+
+  const startCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200; // vitesse de décompte
+        if(count < target){
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 10);
+        } else {
+          counter.innerText = target;
+        }
+      }
+      updateCount();
+    });
+  };
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !counted){
+        startCounters();
+        counted = true;
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(document.getElementById('stats'));
+</script>
+
+
+
+
+
+     <!--populaire-->
+  
+    <section class="py-10 bg-gray-50">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <!-- Titre -->
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">
+      Biens les plus populaires
+    </h2>
+
+    <!-- Grille des biens -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      
+      <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="/src/assets/images/immeuble1.jpg" alt="Appartement" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Appartement moderne</h3>
+          <p class="text-gray-500 text-sm mb-2">Centre-ville • 3 pièces</p>
+          <p class="text-blue-600 font-semibold mb-4">250 000 facf</p>
+           <a href="/voir_detail.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button></a> 
+        </div>
+      </div>
+
+      <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="/src/assets/images/immeuble1.jpg" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+       <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+
+       <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+       <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+       <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+       <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+
+       <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
+          <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+      <!-- Carte -->
+      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="https://source.unsplash.com/400x300/?studio" alt="Studio" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-lg font-bold">Studio cosy</h3>
+          <p class="text-gray-500 text-sm mb-2">Quartier étudiant</p>
+          <p class="text-blue-600 font-semibold mb-4">550 facf / mois</p>
+          <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+            Voir détails
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!--avantage de localzen-->
+
+  <section class="py-12 bg-white">
+  <div class="max-w-6xl mx-auto px-4">
+    
+    <!-- Titre -->
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">
+      Les avantages de Locazen
+    </h2>
+
+    <!-- Grille des avantages -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      
+      <!-- Avantage 1 -->
+      <div class="text-center p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
+        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-blue-100 text-blue-700 rounded-full text-3xl">
+          ⚡
+        </div>
+        <h3 class="text-lg font-bold mb-2">Facile à utiliser</h3>
+        <p class="text-gray-600 text-sm">
+          Interface simple et intuitive pour trouver et réserver votre logement en quelques clics.
+        </p>
+      </div>
+
+      <!-- Avantage 2 -->
+      <div class="text-center p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
+        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-green-100 text-green-700 rounded-full text-3xl">
+          ✅
+        </div>
+        <h3 class="text-lg font-bold mb-2">Offres vérifiées</h3>
+        <p class="text-gray-600 text-sm">
+          Tous les biens sont soigneusement vérifiés pour garantir leur authenticité et éviter les arnaques.
+        </p>
+      </div>
+
+      <!-- Avantage 3 -->
+      <div class="text-center p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
+        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-yellow-100 text-yellow-700 rounded-full text-3xl">
+          🔒
+        </div>
+        <h3 class="text-lg font-bold mb-2">Paiement sécurisé</h3>
+        <p class="text-gray-600 text-sm">
+          Transactions protégées pour réserver et payer votre logement en toute tranquillité.
+        </p>
+      </div>
+
+      <!-- Avantage 4 -->
+      <div class="text-center p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition">
+        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-purple-100 text-purple-700 rounded-full text-3xl">
+          📞
+        </div>
+        <h3 class="text-lg font-bold mb-2">Support 24/7</h3>
+        <p class="text-gray-600 text-sm">
+          Assistance disponible à toute heure pour répondre à vos questions et résoudre vos problèmes.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!--temoignages clients-->
+
+<section class="py-12 bg-gray-50">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Ce que nos clients disent</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Témoignage 1 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Cliente" class="w-14 h-14 rounded-full mr-4 object-cover">
+          <div>
+            <h3 class="font-semibold text-lg">Sophie L.</h3>
+            <div class="text-yellow-400">
+              ★★★★★
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm">
+          “Locazen m’a permis de trouver un appartement très rapidement et sans stress. Je recommande vivement !”
+        </p>
+      </div>
+      
+      <!-- Témoignage 2 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Client" class="w-14 h-14 rounded-full mr-4 object-cover">
+          <div>
+            <h3 class="font-semibold text-lg">Marc D.</h3>
+            <div class="text-yellow-400">
+              ★★★★☆
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm">
+          “Très bonnes offres vérifiées, et un support réactif. Mon paiement s’est fait en toute confiance.”
+        </p>
+      </div>
+      
+      <!-- Témoignage 3 -->
+      <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
+        <div class="flex items-center mb-4">
+          <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="Cliente" class="w-14 h-14 rounded-full mr-4 object-cover">
+          <div>
+            <h3 class="font-semibold text-lg">Laura M.</h3>
+            <div class="text-yellow-400">
+              ★★★★★
+            </div>
+          </div>
+        </div>
+        <p class="text-gray-700 text-sm">
+          “Service impeccable, interface intuitive et offres toujours à jour. Je suis très satisfaite !”
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!--la Baniere a pliene largeur-->
+
+<section class="bg-blue-600 text-white py-16 px-6 text-center rounded-lg max-w-5xl mx-auto my-12">
+  <h2 class="text-4xl font-extrabold mb-4">
+    Trouvez votre logement idéal dès aujourd’hui !
+  </h2>
+  <p class="text-lg mb-8 max-w-xl mx-auto">
+    Inscrivez-vous maintenant et profitez des meilleures offres de location, garanties et sécurisées.
+  </p>
+  <a href="/s'incristion_client.html" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">
+    Je m’inscris
+  </a>
+</section>
+
+
+<!-- Bannière pour encourager les propriétaires -->
+<section class="bg-green-600 text-white py-16 px-6 text-center rounded-lg max-w-5xl mx-auto my-12">
+  <h2 class="text-4xl font-extrabold mb-4">
+    Publiez votre bien et trouvez rapidement des locataires !
+  </h2>
+  <p class="text-lg mb-8 max-w-xl mx-auto">
+    Rejoignez Locazen dès aujourd’hui et mettez en avant vos appartements, villas, studios, bureau, Boutique ou maisons pour atteindre un maximum de locataires fiables.
+  </p>
+  <a href="/s'incristion_proprietaire.html" 
+     class="inline-block bg-white text-green-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">
+     Publier un bien
+  </a>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<!--footer-->
+
+<footer class="bg-gray-900 text-gray-300 py-12">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+    
+    <!-- Logo & Description -->
+    <div>
+      <h3 class="text-white text-2xl font-bold mb-4 ">Locazen</h3>
+      <p class="text-gray-400 text-sm">
+        La plateforme de location de logements simple, sécurisée et rapide.
+      </p>
+    </div>
+    
+    <!-- Liens Utiles -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Liens utiles</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-white">Accueil</a></li>
+        <li><a href="#" class="hover:text-white">Catégories</a></li>
+        <li><a href="#" class="hover:text-white">À propos</a></li>
+        <li><a href="#" class="hover:text-white">Contact</a></li>
+        <li><a href="#" class="hover:text-white">FAQ</a></li>
+      </ul>
+    </div>
+    
+    <!-- Support -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Support</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-white">Aide & Support</a></li>
+        <li><a href="#" class="hover:text-white">Politique de confidentialité</a></li>
+        <li><a href="#" class="hover:text-white">Conditions d’utilisation</a></li>
+      </ul>
+    </div>
+    
+    <!-- Contact -->
+    <div>
+      <h4 class="text-white font-semibold mb-4">Contactez-nous</h4>
+      <p class="text-sm mb-2"> <i class="fa-solid fa-location-dot"></i> 123 Rue de l’Immobilier, douala ,yaounde</p>
+      <p class="text-sm mb-2"><i class="fa-solid fa-phone-volume"></i> +237 6 91 72 73 82</p>
+      <p class="text-sm mb-2"><i class="fa-solid fa-envelope"></i> contact@locazen.com</p>
+      <div class="flex space-x-4 mt-4">
+        <a href="#" aria-label="Facebook" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter" class="hover:text-white"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="telegrame" class="hover:text-white"><i class="fa-brands fa-telegram"></i></a>
+         <a href="#" aria-label="whatssap" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
+    © 2025 Locazen. Tous droits réservés.
+  </div>
+</footer>
+
+</body>
+</html>

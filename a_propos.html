@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/output.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>a_propos</title>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- Header / Nav -->
+<header class="  bg-blue-700 fixed w-screen z-50">
+    <div class="flex justify-between items-center py-4 px-6 md:px-20">
+       <a href="/index.html"> <img src="/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
+
+       <button id="amberger" class="md:hidden text-4xl mr-5"><i class="fa-solid fa-bars"></i></button>
+
+       
+
+        <nav class="hidden md:flex space-x-6 text-white font-medium">
+            <a href="/index.html" class="hover:text-gray-200">Accueil</a>
+            <a href="#" class="hover:text-gray-200 text-blue-400">À propos</a>
+            <a href="/contact.html" class="hover:text-gray-200">Contact</a>
+        </nav>
+        
+        <div class="hidden md:flex space-x-4">
+            <select onchange="if(this.value) window.location.href=this.value" class="pl-5 pr-5 pt-1 pb-1 bg-amber-500 rounded-md text-white hover:bg-amber-600">
+                <option value="">Choisissez un rôle</option>
+                <option value="/s'incristion_client.html" selected>Client</option>
+                <option value="/s'incristion_proprietaire.html">Propriétaire</option>
+            </select>
+            <a href="/formconnexio.html" class="pl-5 pr-5 pt-1 pb-1 bg-amber-500 rounded-md text-white hover:bg-amber-600">Se connecter</a>
+        </div>
+    </div>
+   
+   
+</header>
+
+<div class="h-24"></div> <!-- espace pour le header -->
+
+
+
+<!--a_propos-->
+
+<div id="menu" class="md:hidden  scale-0 bg-black w-[45%] ml-52 text-center z-50 p-10 px-10 rounded-3xl fixed transition-all duration-[1s] ease-in-out transform origin-top-right">
+                <ul><a href="/proprietaire.html" class="  text-white">Acceuill</a></ul>
+                <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
+                <ul><a href="/a_propos.html" class="text-blue-400">A propos</a></ul>
+                <ul><a href="/contact.html" class="text-white">Contact</a></ul>
+                <ul><a href="/Tarief.html" class="text-white">Tarief</a></ul>
+                <ul><a href="/s'incristion_client.html" class="text-white">client</a></ul>
+                <ul><a href="/s'incristion_client.html" class="text-white">Propriétaire</a></ul>
+                <ul><a href="/connexion.html" class="text-white">connexion</a></ul>
+            </div>
+             <script>
+                const amberger = document.getElementById("amberger");
+                const  menu = document.getElementById("menu");
+                amberger.addEventListener("click", ()=> {
+                  menu.classList.toggle("scale-0");
+                });
+
+             </script>
+
+
+  
+
+  <!-- Section À propos -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+     
+    <h1 class="text-3xl font-bold text-center mb-6">À propos de <span class="text-blue-600">Locazen</span></h1>
+    <p class="text-lg text-center mb-12">
+      Locazen est une plateforme innovante dédiée à la <span class="font-semibold">location</span> et à la <span class="font-semibold">réservation de logements</span>. 
+      Elle simplifie la vie des <span class="text-blue-600">clients</span> et des <span class="text-blue-600">propriétaires</span> en offrant une solution rapide, fiable et sécurisée.
+    </p>
+
+    <!-- Côté Client -->
+    <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white shadow-md rounded-2xl p-6">
+        <h2 class="text-2xl font-semibold mb-4">👤 Côté Client</h2>
+        <ul class="space-y-2 text-gray-700">
+          <li>✔️ Rechercher facilement un logement adapté à vos besoins.</li>
+          <li>✔️ Réserver en toute sécurité directement en ligne.</li>
+          <li>✔️ Profiter d’une expérience rapide, transparente et fiable.</li>
+        </ul>
+      </div>
+
+      <!-- Côté Propriétaire -->
+      <div class="bg-white shadow-md rounded-2xl p-6">
+        <h2 class="text-2xl font-semibold mb-4">🏠 Côté Propriétaire</h2>
+        <ul class="space-y-2 text-gray-700">
+          <li>✔️ Publier vos biens immobiliers simplement et rapidement.</li>
+          <li>✔️ Choisir un abonnement adapté pour gérer vos annonces.</li>
+          <li>✔️ Bénéficier d’une grande visibilité auprès des clients.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Étapes pour propriétaires -->
+    <div class="bg-blue-50 border border-blue-200 shadow-sm rounded-2xl p-8">
+      <h2 class="text-2xl font-semibold mb-4 text-blue-700">📌 Étapes pour publier un bien</h2>
+      <p class="mb-4 text-gray-700">
+        Vous êtes propriétaire et vous souhaitez publier un article sur Locazen ? Suivez simplement ces étapes :
+      </p>
+      <ol class="list-decimal list-inside space-y-2 text-gray-700">
+        <li>Créer un compte propriétaire sur Locazen.</li>
+        <li>Choisir et souscrire à un abonnement adapté à vos besoins.</li>
+        <li>Remplir le formulaire de publication avec les informations de votre bien (description, prix, localisation, images, video ).</li>
+        <li>Vérifier et valider vos informations pour garantir la fiabilité.</li>
+        <li>Publier votre bien et commencer à recevoir des demandes de réservation.</li>
+      </ol>
+    </div>
+  </section>
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-300 py-12 mt-12">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div>
+            <h3 class="text-white text-2xl font-bold mb-4">Locazen</h3>
+            <p class="text-gray-400 text-sm">
+                La plateforme de location de logements simple, sécurisée et rapide.
+            </p>
+        </div>
+        <div>
+            <h4 class="text-white font-semibold mb-4">Liens utiles</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#" class="hover:text-white">Accueil</a></li>
+                <li><a href="#" class="hover:text-white">Catégories</a></li>
+                <li><a href="#" class="hover:text-white">À propos</a></li>
+                <li><a href="#" class="hover:text-white">Contact</a></li>
+                <li><a href="#" class="hover:text-white">FAQ</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white font-semibold mb-4">Support</h4>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#" class="hover:text-white">Aide & Support</a></li>
+                <li><a href="#" class="hover:text-white">Politique de confidentialité</a></li>
+                <li><a href="#" class="hover:text-white">Conditions d’utilisation</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="text-white font-semibold mb-4">Contactez-nous</h4>
+            <p class="text-sm mb-2"> <i class="fa-solid fa-location-dot"></i>  123 Rue de l’Immobilier, Douala, Yaoundé</p>
+            <p class="text-sm mb-2"><i class="fa-solid fa-phone-volume"></i> +237 6 91 72 73 82</p>
+            <p class="text-sm mb-2"> <i class="fa-solid fa-envelope"></i> contact@locazen.com</p>
+            <div class="flex space-x-4 mt-4">
+                <a href="#" aria-label="Facebook" class="hover:text-white"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter" class=""><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram" class="hover:text-white"><i class="fa-brands fa-telegram"></i></a>
+                 <a href="#" aria-label="whatssap" class="hover:text-white"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-500">
+        © 2025 Locazen. Tous droits réservés.
+    </div>
+</footer>
+
+</body>
+</html>
+
+</body>
+</html>
