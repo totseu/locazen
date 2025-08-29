@@ -12,7 +12,6 @@
     --color-orange-500: oklch(70.5% 0.213 47.604);
     --color-orange-600: oklch(64.6% 0.222 41.116);
     --color-orange-700: oklch(55.3% 0.195 38.402);
-    --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-500: oklch(76.9% 0.188 70.08);
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-100: oklch(97.3% 0.071 103.193);
@@ -367,6 +366,9 @@
   .mr-5 {
     margin-right: calc(var(--spacing) * 5);
   }
+  .mr-14 {
+    margin-right: calc(var(--spacing) * 14);
+  }
   .mr-20 {
     margin-right: calc(var(--spacing) * 20);
   }
@@ -399,6 +401,9 @@
   }
   .ml-2 {
     margin-left: calc(var(--spacing) * 2);
+  }
+  .ml-7 {
+    margin-left: calc(var(--spacing) * 7);
   }
   .ml-52 {
     margin-left: calc(var(--spacing) * 52);
@@ -798,6 +803,9 @@
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
+  .bg-gray-400 {
+    background-color: var(--color-gray-400);
+  }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
   }
@@ -818,9 +826,6 @@
   }
   .bg-orange-600 {
     background-color: var(--color-orange-600);
-  }
-  .bg-orange-700 {
-    background-color: var(--color-orange-700);
   }
   .bg-purple-50 {
     background-color: var(--color-purple-50);
@@ -847,8 +852,11 @@
   .bg-\[linear-gradient\(rgba\(0\,0\,0\,0\.5\)\,rgba\(0\,0\,0\,0\.5\)\)\] {
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   }
-  .bg-\[url\(\'\/src\/assets\/images\/fond1\.jpg\'\)\] {
-    background-image: url('/src/assets/images/fond1.jpg');
+  .bg-\[url\(\'https\:\/\/www\.freepik\.com\/free-photo\/man-holding-house-sale-icon_3539811\.htm\#fromView\=image_search_similar\&page\=1\&position\=2\&uuid\=7952ff46-ee61-46e4-9e12-b871122470b0\&query\=je\+veux\+modernes\+pour\+les\+logements\'\)\] {
+    background-image: url('https://www.freepik.com/free-photo/man-holding-house-sale-icon_3539811.htm#fromView=image_search_similar&page=1&position=2&uuid=7952ff46-ee61-46e4-9e12-b871122470b0&query=je+veux+modernes+pour+les+logements');
+  }
+  .bg-\[url\(\'https\:\/\/www\.freepik\.com\/free-photo\/new-home-keys-plan-table-with-defocused-couple_12061542\.htm\#fromView\=image_search_similar\&page\=1\&position\=4\&uuid\=7952ff46-ee61-46e4-9e12-b871122470b0\&query\=je\+veux\+modernes\+pour\+les\+logements\'\)\] {
+    background-image: url('https://www.freepik.com/free-photo/new-home-keys-plan-table-with-defocused-couple_12061542.htm#fromView=image_search_similar&page=1&position=4&uuid=7952ff46-ee61-46e4-9e12-b871122470b0&query=je+veux+modernes+pour+les+logements');
   }
   .from-blue-700 {
     --tw-gradient-from: var(--color-blue-700);
@@ -1291,6 +1299,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  .md\:relative {
+    @media (width >= 48rem) {
+      position: relative;
+    }
+  }
   .md\:top-0 {
     @media (width >= 48rem) {
       top: calc(var(--spacing) * 0);
@@ -1344,6 +1357,16 @@
   .md\:ml-20 {
     @media (width >= 48rem) {
       margin-left: calc(var(--spacing) * 20);
+    }
+  }
+  .md\:ml-64 {
+    @media (width >= 48rem) {
+      margin-left: calc(var(--spacing) * 64);
+    }
+  }
+  .md\:ml-\[35\%\] {
+    @media (width >= 48rem) {
+      margin-left: 35%;
     }
   }
   .md\:block {

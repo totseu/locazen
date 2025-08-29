@@ -1,8 +1,21 @@
+  <?php
+//connexion a la base de donnee
+require 'database.php';
+  // require 'securiteAction.php';
+ 
+?>
+<?php
+if(!isset($_SESSION['auth'])){
+    header('location: connexion.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="src/css/output.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Client - Locazen</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -15,19 +28,25 @@
   </style>
 </head>
 <body class="bg-gray-100 font-sans">
+ 
 
-<div class="flex">
+
+
+<div class="flex ">
 
   <!-- Sidebar -->
-  <aside class="w-64 bg-green-500 text-white h-screen flex flex-col fixed">
+  <aside class="w-64 bg-gray-400 text-white h-screen  flex-col fixed hidden md:block">
     <div class="flex justify-between items-center border-b border-green-400 py-6 px-4">
-      <img src="/src/assets/images/Logo moderne de Locazen avec maison (1).png" 
+      <img src="/tailwind css/src/assets/images/Logo moderne de Locazen avec maison (1).png" 
            alt="locazen" class="h-[70px] w-[90px] rounded-2xl">
       <img src="https://randomuser.me/api/portraits/women/68.jpg" 
            alt="Cliente" class="w-14 h-14 rounded-full object-cover">
     </div>
 
-    <nav class="flex-1 p-4 space-y-3">
+    
+    <!-- Menu de navigation -->
+
+    <nav class="flex-1 p-4 space-y-3 ">
       <button onclick="showSection('home')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">🏠 Accueil</button>
       <button onclick="showSection('mesReservations')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">📦 Mes Réservations</button>
       <button onclick="showSection('profil')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-green-600">👤 Mon Profil</button>
@@ -35,16 +54,35 @@
     </nav>
 
     <div class="p-4 border-t border-green-400">
-      <button class="w-full bg-red-500 py-2 rounded-lg hover:bg-red-600">Déconnexion</button>
-    </div>
+      <a href="/tailwind css/deconnecteSession.php"><button class="w-full bg-red-500 py-2 rounded-lg hover:bg-red-600">Déconnexion</button>
+    </div></a>
   </aside>
 
   <!-- Contenu principal -->
-  <main class="flex-1 p-6 ml-64 overflow-y-auto">
+  <main class="flex-1 p-6 md:ml-64  overflow-y-auto absolute md:relative">
+     
 
     <!-- Accueil / Liste des biens -->
     <section id="home" class="section fade-in">
-      <h1 class="text-2xl font-bold mb-6 text-gray-700">Découvrez nos biens</h1>
+      <div class= "flex justify-between items-center mr-14 ">
+         <button id="amberger" class="md:hidden text-4xl mr-5"><i class="fa-solid fa-bars"></i></button>
+      <h1 class="text-2xl font-bold mb-6 text-gray-700 mt-5">Découvrez nos biens</h1>
+      </div>
+
+      <script>
+        const amberger = document.getElementById("amberger");
+        const sidebar = document.querySelector("aside");
+
+        amberger.addEventListener("click", () => {
+          if (sidebar.classList.contains("hidden")) {
+            sidebar.classList.remove("hidden");
+            sidebar.classList.add("absolute", "z-50", "bg-gray-400", "h-screen", "fixed", "w-64");
+          } else {
+            sidebar.classList.add("hidden");
+          }
+        });
+      </script>
+     
 
       <!-- Recherche -->
       <div class="flex mb-6 space-x-4">
@@ -79,7 +117,7 @@
         </div>
 
          <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
-          <img src="/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
+          <img src="/tailwind css/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
           <h2 class="font-bold text-lg mb-2">Appartement Yaoundé</h2>
           <p class="text-gray-600 mb-1">📍 Yaoundé</p>
           <p class="text-gray-800 font-semibold mb-2">1 500 000 FCFA</p>

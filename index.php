@@ -5,25 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/output.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <title>locazen</title>
 </head> 
+
 <body class="">
-    <header class="">
+    <header  class="">
         <div class="">
         <nav class="flex justify-between w-screen  fixed z-50 bg-blue-700 top-0 " >
             <div class="">
-                <img src="/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="locazen" class="h-[70px] w-[90px] rounded-2xl md:ml-20">
+                <img src="/tailwind css/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="locazen" class="h-[70px] w-[90px] rounded-2xl md:ml-20">
             </div>
 
              <button id="amberger" class="md:hidden text-4xl mr-5"><i class="fa-solid fa-bars"></i></button>
             
            
             <div class="justify-center gap-5 mt-5 hidden md:flex md:ml-5">
-                <ul><a href="/proprietaire.html" class="  text-blue-400">Acceuill</a></ul>
+                <ul><a href="/tailwind css/proprietaire.html" class="  text-blue-400">Acceuill</a></ul>
                 <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
-                <ul><a href="/a_propos.html" class="text-white">A propos</a></ul>
-                <ul><a href="/contact.html" class="text-white">Contact</a></ul>
-                <ul><a href="/Tarief.html" class="text-white">Tarief</a></ul>
+                <ul><a href="/tailwind css/a_propos.html" class="text-white">A propos</a></ul>
+                <ul><a href="/tailwind css/contact.html" class="text-white">Contact</a></ul>
+                <ul><a href="/tailwind css/Tarief.html" class="text-white">Tarif</a></ul>
             </div>
             <div class="mt-5 mr-20 hidden md:block">
   <!-- Menu déroulant qui redirige automatiquement -->
@@ -33,12 +36,12 @@
     onchange="if(this.value) window.location.href=this.value">
     
     <option value="">Choisissez un rôle</option>
-    <option value="/s'incristion_client.html">Client</option>
-    <option value="/s'incristion_proprietaire.html">Propriétaire</option>
+    <option value="/tailwind css/incristion_client.php">Client</option>
+    <option value="/tailwind css/s'incristion_proprietaire.html">Propriétaire</option>
   </select>
 
   <!-- Bouton connexion -->
-  <a href="/connexion.html" 
+  <a href="/tailwind css/connexion.php" 
      class="pl-5 pr-5 pt-1 pb-1 bg-amber-500 rounded-md text-white inline-block ml-2 hover:bg-amber-600">
      Se connecter
   </a>
@@ -52,18 +55,18 @@
     <div class="h-18"> </div>
     <div class="relative h-screen">
       
-        <div class="absolute inset-0 bg-[url('/src/assets/images/fond1.jpg')] bg-cover bg-center h-[75vh]   ">
+        <div class="absolute inset-0 bg-[url('/tailwind css/src/assets/images/fond1.jpg')] bg-cover bg-center h-[75vh]   ">
          
             <div class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))]"></div>
              <div id="menu" class="md:hidden  scale-0 bg-black w-[45%] ml-52 text-center z-50 p-10 px-10 rounded-3xl fixed transition-all duration-[1s] ease-in-out transform origin-top-right">
                 <ul><a href="/proprietaire.html" class="  text-blue-400">Acceuill</a></ul>
                 <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
-                <ul><a href="/a_propos.html" class="text-white">A propos</a></ul>
-                <ul><a href="/contact.html" class="text-white">Contact</a></ul>
-                <ul><a href="/Tarief.html" class="text-white">Tarief</a></ul>
-                <ul><a href="/s'incristion_client.html" class="text-white">client</a></ul>
-                <ul><a href="/s'incristion_client.html" class="text-white">Propriétaire</a></ul>
-                <ul><a href="/connexion.html" class="text-white">connexion</a></ul>
+                <ul><a href="/tailwind css/a_propos.html" class="text-white">A propos</a></ul>
+                <ul><a href="/tailwind css/contact.html" class="text-white">Contact</a></ul>
+                <ul><a href="/tailwind css/Tarief.html" class="text-white">Tarif</a></ul>
+                <ul><a href="/tailwind css/s'incristion_client.html" class="text-white">client</a></ul>
+                <ul><a href="/tailwind css/s'incristion_client.html" class="text-white">Propriétaire</a></ul>
+                <ul><a href="/tailwind css/connexion.php" class="text-white">connexion</a></ul>
             </div>
               <script>
                 const amberger = document.getElementById("amberger");
@@ -106,7 +109,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 
 
-  <section class="py-10 -mt-60 ">
+  <section data-aos="fade-up" class="py-10 -mt-60 ">
     <div class="max-w-5xl mx-auto">
       <!-- Titre + Boutons -->
       <div class="flex items-center justify-between mb-4">
@@ -212,7 +215,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 
 <!-- Section Statistiques avec décompte au scroll -->
-<section id="stats" class="py-12 bg-gray-50">
+<section data-aos="fade-up" id="stats" class="py-12 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 text-center">
     <h2 class="text-3xl font-bold text-blue-700 mb-10">Nos chiffres clés</h2>
     
@@ -288,7 +291,7 @@ Explorez. Réservez. Emménagez.</h1>
   <div class="max-w-6xl mx-auto px-4">
     
     <!-- Titre -->
-    <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">
+    <h2 data-aos="fade-up" class="text-3xl font-bold text-center text-blue-700 mb-8">
       Biens les plus populaires
     </h2>
 
@@ -296,8 +299,8 @@ Explorez. Réservez. Emménagez.</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       
       <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/src/assets/images/immeuble1.jpg" alt="Appartement" class="w-full h-48 object-cover">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="/tailwind css/src/assets/images/immeuble1.jpg" alt="Appartement" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Appartement moderne</h3>
           <p class="text-gray-500 text-sm mb-2">Centre-ville • 3 pièces</p>
@@ -309,8 +312,8 @@ Explorez. Réservez. Emménagez.</h1>
       </div>
 
       <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/src/assets/images/immeuble1.jpg" alt="Villa" class="w-full h-48 object-cover">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+        <img src="/tailwind css/src/assets/images/immeuble1.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
@@ -322,7 +325,7 @@ Explorez. Réservez. Emménagez.</h1>
       </div>
 
        <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
@@ -336,7 +339,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 
        <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
@@ -349,7 +352,7 @@ Explorez. Réservez. Emménagez.</h1>
       </div>
 
        <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
@@ -362,7 +365,7 @@ Explorez. Réservez. Emménagez.</h1>
       </div>
 
        <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
@@ -375,7 +378,7 @@ Explorez. Réservez. Emménagez.</h1>
       </div>
 
        <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
@@ -389,7 +392,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 
        <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Villa de luxe</h3>
@@ -402,7 +405,7 @@ Explorez. Réservez. Emménagez.</h1>
       </div>
 
       <!-- Carte -->
-      <div class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
+      <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
         <img src="https://source.unsplash.com/400x300/?studio" alt="Studio" class="w-full h-48 object-cover">
         <div class="p-4">
           <h3 class="text-lg font-bold">Studio cosy</h3>
@@ -420,7 +423,7 @@ Explorez. Réservez. Emménagez.</h1>
 
   <!--avantage de localzen-->
 
-  <section class="py-12 bg-white">
+  <section data-aos="fade-up" class="py-12 bg-white">
   <div class="max-w-6xl mx-auto px-4">
     
     <!-- Titre -->
@@ -482,7 +485,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 <!--temoignages clients-->
 
-<section class="py-12 bg-gray-50">
+<section data-aos="fade-up" class="py-12 bg-gray-50">
   <div class="max-w-5xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center text-blue-700 mb-10">Ce que nos clients disent</h2>
     
@@ -542,7 +545,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 <!--la Baniere a pliene largeur-->
 
-<section class="bg-blue-600 text-white py-16 px-6 text-center rounded-lg max-w-5xl mx-auto my-12">
+<section data-aos="fade-up" class="bg-blue-600 text-white py-16 px-6 text-center rounded-lg max-w-5xl mx-auto my-12">
   <h2 class="text-4xl font-extrabold mb-4">
     Trouvez votre logement idéal dès aujourd’hui !
   </h2>
@@ -556,7 +559,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 
 <!-- Bannière pour encourager les propriétaires -->
-<section class="bg-green-600 text-white py-16 px-6 text-center rounded-lg max-w-5xl mx-auto my-12">
+<section data-aos="fade-up" class="bg-green-600 text-white py-16 px-6 text-center rounded-lg max-w-5xl mx-auto my-12">
   <h2 class="text-4xl font-extrabold mb-4">
     Publiez votre bien et trouvez rapidement des locataires !
   </h2>
@@ -581,7 +584,7 @@ Explorez. Réservez. Emménagez.</h1>
 
 <!--footer-->
 
-<footer class="bg-gray-900 text-gray-300 py-12">
+<footer data-aos="fade-up" class="bg-gray-900 text-gray-300 py-12">
   <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
     
     <!-- Logo & Description -->
@@ -635,6 +638,10 @@ Explorez. Réservez. Emménagez.</h1>
     © 2025 Locazen. Tous droits réservés.
   </div>
 </footer>
+
+<script>
+  AOS.init();
+</script>
 
 </body>
 </html>
