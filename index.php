@@ -22,7 +22,7 @@
             
            
             <div class="justify-center gap-5 mt-5 hidden md:flex md:ml-5">
-                <ul><a href="/tailwind css/proprietaire.html" class="  text-blue-400">Acceuill</a></ul>
+                <ul><a href="#" class="  text-blue-400">Acceuill</a></ul>
                 <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
                 <ul><a href="/tailwind css/a_propos.html" class="text-white">A propos</a></ul>
                 <ul><a href="/tailwind css/contact.html" class="text-white">Contact</a></ul>

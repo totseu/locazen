@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard Propriétaire</title>
+  <link rel="stylesheet" href="src/css/output.css">
   <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+
   <style>
     .hidden { display: none; }
     .fade-in { animation: fadeIn 0.4s ease-in-out; }
@@ -19,7 +24,7 @@
   <div class="flex h-screen">
 
     <!-- Sidebar -->
-    <aside class="w-72 bg-gradient-to-b from-blue-700 to-indigo-800 text-white flex flex-col shadow-xl">
+    <aside class="w-72 bg-gradient-to-b from-blue-700 to-indigo-800 text-white  flex-col shadow-xl">
       <div class="p-6 border-b border-white/20 flex items-center gap-4">
         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Propriétaire" class="w-14 h-14 rounded-full object-cover border-2 border-white">
         <div>
@@ -73,12 +78,33 @@
             <p class="text-4xl font-bold text-purple-600">90%</p>
           </div>
         </div>
+        <!-- Graphique -->
+        <h2 class="text-lg font-semibold my-6 text-gray-600">📈 Statistiques des ventes</h2>
+      <div id="container" style="height: 400px; width: 100%;"></div>
+
+       <footer class="bg-gray-800 text-gray-400 mt-5">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between">
+    
+    <!-- Copyright -->
+    <p class="text-sm">&copy; 2025 MonSite. Tous droits réservés.</p>
+    
+    <!-- Liens rapides -->
+    <div class="flex space-x-6 mt-3 md:mt-0">
+      <a href="#" class="hover:text-blue-400 text-sm">Conditions</a>
+      <a href="#" class="hover:text-blue-400 text-sm">Confidentialité</a>
+      <a href="#" class="hover:text-blue-400 text-sm">Aide</a>
+    </div>
+  </div>
+</footer>
       </section>
+
+     
+
 
       <!-- Gestion des biens -->
       <section id="biens" class="section hidden">
         <h2 class="text-2xl font-bold mb-6 text-gray-800">📦 Mes Biens</h2>
-        <button class="mb-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">➕ Publier un bien</button>
+        <button id="btn_publier" class="mb-4 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700">➕ Publier un bien</button>
         <table class="w-full border-collapse bg-white shadow-md rounded-2xl overflow-hidden">
           <thead class="bg-blue-50">
             <tr class="text-left text-gray-600">
@@ -109,6 +135,84 @@
             </tr>
           </tbody>
         </table>
+
+      
+
+        <!-- formulaire publication bien -->
+        <div id="formul_publier" class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-ls mt-2 hidden ">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">📌 Publier un Bien Immobilier</h2>
+
+    <form action="#" method="POST" class="space-y-5">
+
+      <!-- Type de bien -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Type de bien</label>
+        <select name="type" class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
+          <option value="">-- Sélectionner --</option>
+          <option value="appartement">Appartement</option>
+          <option value="maison">Maison</option>
+          <option value="local">Local commercial</option>
+          <option value="bureau">Bureau</option>
+        </select>
+      </div>
+
+      <!-- Titre de l’annonce -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Titre de l’annonce</label>
+        <input type="text" name="titre" placeholder="Ex: Appartement T3 centre-ville"
+               class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- Adresse -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Adresse</label>
+        <input type="text" name="adresse" placeholder="Ville, quartier, rue..."
+               class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- Prix -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Prix (€)</label>
+        <input type="number" name="prix" placeholder="Ex: 45000fcfa"
+               class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- Superficie -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Superficie (m²)</label>
+        <input type="number" name="superficie" placeholder="Ex: 120"
+               class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- Description -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Description</label>
+        <textarea name="description" rows="4" placeholder="Décrivez les caractéristiques du bien... les avantages "
+                  class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300 "></textarea>
+      </div>
+
+      <!-- Photos -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Photos du bien</label>
+        <input type="file" name="photos[]" multiple
+               class="w-full border rounded-lg p-3 bg-gray-50 focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- video -->
+      <div>
+        <label class="block text-gray-700 mb-2 font-medium">Photos du bien</label>
+        <input type="file" name="video[]" multiple
+               class="w-full border rounded-lg p-3 bg-gray-50 focus:ring focus:ring-blue-300">
+      </div>
+
+      <!-- Bouton -->
+      <button id="publier" type="submit"
+              class="w-1/2 text-center bg-blue-600 text-white p-3 rounded-xl font-semibold hover:bg-blue-700 transition relative left-1/4">
+        ✅ Publier le bien
+      </button>
+
+    </form>
+  </div>
       </section>
 
       <!-- Profil -->
@@ -121,7 +225,7 @@
           </div>
           <div>
             <label class="block text-gray-600 font-medium">Email</label>
-            <input type="email" class="w-full border rounded-lg p-2 mt-1" value="proprietaire@mail.com">
+            <input type="email" class="w-full border rounded-lg p-2 mt-1" value="nathaTotseu@mail.com">
           </div>
           <div>
             <label class="block text-gray-600 font-medium">Mot de passe</label>
@@ -158,6 +262,37 @@
       section.classList.add('fade-in');
       setTimeout(() => section.classList.remove('fade-in'), 500);
     }
+
+     
+          const btn_publier= document.getElementById("btn_publier");
+          const formul_publier = document.getElementById("formul_publier");
+          const publier = document.getElementById("publier");
+          btn_publier.addEventListener("click", ()=>{
+            formul_publier.classList.toggle("hidden");
+            btn_publier.classList.toggle("bg-gray-300");
+            btn_publier.classList.toggle("hover:bg-green-700");
+          });
+          publier.addEventListener("click", ()=>{
+            formul_publier.classList.add("hidden");
+            btn_publier.classList.toggle("bg-green-600");
+            btn_publier.classList.toggle("hover:bg-green-700");
+          })
+
+          //graphe
+Highcharts.chart('container', {
+    chart: { type: 'line' },
+    title: { text: 'Évolution des Ventes' },
+    xAxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May'] },
+    yAxis: { title: { text: 'Ventes' } },
+    series: [{
+        name: 'Produit A',
+        data: [29, 71, 106, 129, 144]
+    }, {
+        name: 'Produit B',
+        data: [34, 78, 92, 140, 160]
+    }]
+});
+       
   </script>
 </body>
 </html>

@@ -17,7 +17,7 @@ require 'inscription_client_action.php';
 <!-- Header / Nav -->
 <header class=" fixed w-screen z-50">
     <div class="flex justify-between items-center py-4 px-6 md:px-20 -mt-0">
-        <a href="/index.html"><img src="/tailwind css/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
+        <a href="/tailwind css/index.php"><img src="/tailwind css/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
           <?php
     if (isset($erroMsg)){
         echo '<p class="bg-red-500 text-white p-3 rounded-lg text-center absolute top-20 ml-7 md:ml-[35%]">'.$erroMsg.'</p>';
