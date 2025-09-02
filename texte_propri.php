@@ -1,3 +1,72 @@
+<?php
+// texte_propri.php
+require 'database.php'; // connexion PDO ($bdd)
+
+if (isset($_POST['valider'])) {
+    //Sécuriser les données reçues
+    $type        = htmlspecialchars($_POST['type']);
+    $titre       = htmlspecialchars($_POST['titre']);
+    $adresse     = htmlspecialchars($_POST['adresse']);
+    $prix        = (int) $_POST['prix'];
+    $superficie  = (int) $_POST['superficie'];
+    $description = htmlspecialchars($_POST['description']);
+
+    //Insérer le bien dans la table "biens"
+    $stmt = $bdd->prepare("INSERT INTO biens (type, titre, adresse, prix, superficie, description, date_pub) 
+                           VALUES (?, ?, ?, ?, ?, ?, NOW())");
+    $stmt->execute([$type, $titre, $adresse, $prix, $superficie, $description]);
+
+    $id_bien = $bdd->lastInsertId(); // ID du bien inséré
+
+    //Créer les dossiers d’upload si nécessaire
+    if (!is_dir("uploads/images")) mkdir("uploads/images", 0777, true);
+    if (!is_dir("uploads/videos")) mkdir("uploads/videos", 0777, true);
+
+    //Gestion des photos
+    if (!empty($_FILES['images']['name'][0])) {
+        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+            if ($_FILES['images']['error'][$key] === 0) {
+                $ext = strtolower(pathinfo($_FILES['images']['name'][$key], PATHINFO_EXTENSION));
+                $nomFichier = uniqid("img_") . "." . $ext;
+                $chemin = "uploads/images/" . $nomFichier;
+
+                if (move_uploaded_file($tmp_name, $chemin)) {
+                    $stmt = $bdd->prepare("INSERT INTO medias (bien_id, type, chemin) VALUES (?, 'image', ?)");
+                    $stmt->execute([$id_bien, $chemin]);
+                }
+            }
+        }
+    }
+
+    // Gestion des vidéos
+    if (!empty($_FILES['videos']['name'][0])) {
+        foreach ($_FILES['videos']['tmp_name'] as $key => $tmp_name) {
+            if ($_FILES['videos']['error'][$key] === 0) {
+                $ext = strtolower(pathinfo($_FILES['videos']['name'][$key], PATHINFO_EXTENSION));
+                $nomFichier = uniqid("vid_") . "." . $ext;
+                $chemin = "uploads/videos/" . $nomFichier;
+
+                if (move_uploaded_file($tmp_name, $chemin)) {
+                    $stmt = $bdd->prepare("INSERT INTO medias (bien_id, type, chemin) VALUES (?, 'video', ?)");
+                    $stmt->execute([$id_bien, $chemin]);
+                }
+            }
+        }
+    }
+   
+
+
+    // Message de confirmation
+    echo "<p style='color:green;font-weight:bold;'> Bien publié avec succès !</p>";
+}
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,6 +74,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard Propriétaire</title>
   <link rel="stylesheet" href="src/css/output.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
@@ -24,7 +95,7 @@
   <div class="flex h-screen">
 
     <!-- Sidebar -->
-    <aside class="w-72 bg-gradient-to-b from-blue-700 to-indigo-800 text-white  flex-col shadow-xl">
+    <aside class="w-72 bg-gradient-to-b from-blue-700 to-indigo-800 text-white bg-blue-600 flex-col shadow-xl">
       <div class="p-6 border-b border-white/20 flex items-center gap-4">
         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Propriétaire" class="w-14 h-14 rounded-full object-cover border-2 border-white">
         <div>
@@ -50,7 +121,7 @@
 
       <!-- Dashboard -->
       <section id="dashboard" class="section fade-in">
-        <h1 class="text-3xl font-bold mb-6 text-gray-800">Bienvenue 👋</h1>
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">Bienvenue <i class="fa-solid fa-door-open"></i></h1>
 
         <!-- Carte infos -->
         <div class="bg-white shadow-md rounded-2xl p-6 mb-6">
@@ -142,11 +213,12 @@
         <div id="formul_publier" class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-ls mt-2 hidden ">
     <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">📌 Publier un Bien Immobilier</h2>
 
-    <form action="#" method="POST" class="space-y-5">
+    <form action="publier_bien.php" method="POST" enctype="multipart/form-data">
+     
 
       <!-- Type de bien -->
       <div>
-        <label class="block text-gray-700 mb-2 font-medium">Type de bien</label>
+        <label name="type" class="block text-gray-700 mb-2 font-medium">Type de bien</label>
         <select name="type" class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
           <option value="">-- Sélectionner --</option>
           <option value="appartement">Appartement</option>
@@ -158,35 +230,35 @@
 
       <!-- Titre de l’annonce -->
       <div>
-        <label class="block text-gray-700 mb-2 font-medium">Titre de l’annonce</label>
+        <label name="titre" class="block text-gray-700 mb-2 font-medium">Titre de l’annonce</label>
         <input type="text" name="titre" placeholder="Ex: Appartement T3 centre-ville"
                class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
       </div>
 
       <!-- Adresse -->
       <div>
-        <label class="block text-gray-700 mb-2 font-medium">Adresse</label>
+        <label name="adresse" class="block text-gray-700 mb-2 font-medium">Adresse</label>
         <input type="text" name="adresse" placeholder="Ville, quartier, rue..."
                class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
       </div>
 
       <!-- Prix -->
       <div>
-        <label class="block text-gray-700 mb-2 font-medium">Prix (€)</label>
+        <label name="prix" class="block text-gray-700 mb-2 font-medium">Prix (€)</label>
         <input type="number" name="prix" placeholder="Ex: 45000fcfa"
                class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
       </div>
 
       <!-- Superficie -->
       <div>
-        <label class="block text-gray-700 mb-2 font-medium">Superficie (m²)</label>
+        <label name="superficie" class="block text-gray-700 mb-2 font-medium">Superficie (m²)</label>
         <input type="number" name="superficie" placeholder="Ex: 120"
                class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300">
       </div>
 
       <!-- Description -->
       <div>
-        <label class="block text-gray-700 mb-2 font-medium">Description</label>
+        <label name="description" class="block text-gray-700 mb-2 font-medium">Description</label>
         <textarea name="description" rows="4" placeholder="Décrivez les caractéristiques du bien... les avantages "
                   class="w-full border rounded-lg p-3 focus:ring focus:ring-blue-300 "></textarea>
       </div>
@@ -194,19 +266,20 @@
       <!-- Photos -->
       <div>
         <label class="block text-gray-700 mb-2 font-medium">Photos du bien</label>
-        <input type="file" name="photos[]" multiple
+        <input type="file"  name="images[]" accept="image/*" multiple
                class="w-full border rounded-lg p-3 bg-gray-50 focus:ring focus:ring-blue-300">
       </div>
 
       <!-- video -->
       <div>
         <label class="block text-gray-700 mb-2 font-medium">Photos du bien</label>
-        <input type="file" name="video[]" multiple
+        <input type="file"name="videos[]" accept="video/*" multiple
                class="w-full border rounded-lg p-3 bg-gray-50 focus:ring focus:ring-blue-300">
+              
       </div>
 
       <!-- Bouton -->
-      <button id="publier" type="submit"
+      <button name="valider" id="publier" type="submit"
               class="w-1/2 text-center bg-blue-600 text-white p-3 rounded-xl font-semibold hover:bg-blue-700 transition relative left-1/4">
         ✅ Publier le bien
       </button>

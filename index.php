@@ -55,7 +55,7 @@
     <div class="h-18"> </div>
     <div class="relative h-screen">
       
-        <div class="absolute inset-0 bg-[url('/tailwind css/src/assets/images/fond1.jpg')] bg-cover bg-center h-[75vh]   ">
+        <div class="absolute inset-0 bg-[url('/tailwind css/src/assets/images/ville de douala.jpg')] bg-cover bg-center h-[75vh]   ">
          
             <div class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))]"></div>
              <div id="menu" class="md:hidden  scale-0 bg-black w-[45%] ml-52 text-center z-50 p-10 px-10 rounded-3xl fixed transition-all duration-[1s] ease-in-out transform origin-top-right">

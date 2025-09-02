@@ -1,6 +1,6 @@
   <?php
 //connexion a la base de donnee
-require 'database.php';
+require 'database.php';  // connexion PDO ($bdd)
   // require 'securiteAction.php';
  
 ?>
@@ -9,6 +9,18 @@ if(!isset($_SESSION['auth'])){
     header('location: connexion.php');
     exit();
 }
+
+
+
+
+
+// Récupérer tous les biens
+$stmt = $bdd->query("SELECT * FROM biens ORDER BY date_pub DESC");
+$biens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -146,6 +158,47 @@ if(!isset($_SESSION['auth'])){
             <button class="bg-orange-500 hover:bg-orange-600 text-white px-3 py-1 rounded-lg">voir details</button>
           </div>
         </div>
+
+         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <?php foreach ($biens as $bien): ?>
+      <div class="bg-white shadow-lg rounded-2xl p-5">
+        <!-- Infos du bien -->
+        <h2 class="text-xl font-semibold text-blue-600 mb-2"><?= htmlspecialchars($bien['titre']) ?></h2>
+        <p class="text-gray-700"><strong>Type:</strong> <?= htmlspecialchars($bien['type']) ?></p>
+        <p class="text-gray-700"><strong>Adresse:</strong> <?= htmlspecialchars($bien['adresse']) ?></p>
+        <p class="text-gray-700"><strong>Prix:</strong> <?= number_format($bien['prix'], 0, ',', ' ') ?> FCFA</p>
+        <p class="text-gray-700"><strong>Superficie:</strong> <?= $bien['superficie'] ?> m²</p>
+        <p class="text-gray-600 mt-2"><?= nl2br(htmlspecialchars($bien['description'])) ?></p>
+
+        <!-- Récupérer les médias liés -->
+        <?php
+        $stmt = $bdd->prepare("SELECT * FROM medias WHERE bien_id = ?");
+        $stmt->execute([$bien['id']]);
+        $medias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
+        <!-- Affichage des photos -->
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <?php foreach ($medias as $media): ?>
+            <?php if ($media['type'] == 'image'): ?>
+              <img src="<?= $media['chemin'] ?>" alt="Photo bien"
+                   class="rounded-lg w-full h-32 object-cover">
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </div>
+
+        <!-- Affichage des vidéos -->
+        <?php foreach ($medias as $media): ?>
+          <?php if ($media['type'] == 'video'): ?>
+            <video controls class="mt-3 w-full rounded-lg">
+              <source src="<?= $media['chemin'] ?>" type="video/mp4">
+              Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </div>
+    <?php endforeach; ?>
+  </div>
 
          <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col">
           <img src="/tailwind css/src/assets/images/immeuble1.jpg" alt="Appartement Yaoundé" class="rounded-xl mb-4">
