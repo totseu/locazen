@@ -9,14 +9,4 @@ try {
     //throw $th;
     die('une erreur a ete trouvee : ' .$e->getMessage());
 }
-
-
-
-
-
-
-
-
-
-
 ?>

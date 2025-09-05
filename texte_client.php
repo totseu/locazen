@@ -15,8 +15,9 @@ if(!isset($_SESSION['auth'])){
 
 
 // Récupérer tous les biens
-$stmt = $bdd->query("SELECT * FROM biens ORDER BY date_pub DESC");
-$biens = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// $stmt = $bdd->query("SELECT * FROM biens ORDER BY date_pub DESC");
+// $biens = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 

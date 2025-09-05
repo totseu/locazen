@@ -862,6 +862,9 @@
   .bg-\[linear-gradient\(rgba\(0\,0\,0\,0\.5\)\,rgba\(0\,0\,0\,0\.5\)\)\] {
     background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
   }
+  .bg-\[url\(\'\/tailwind\%20css\/src\/assets\/images\/ville\%20de\%20douala\.jpg\'\)\] {
+    background-image: url('/tailwind%20css/src/assets/images/ville%20de%20douala.jpg');
+  }
   .from-blue-700 {
     --tw-gradient-from: var(--color-blue-700);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
