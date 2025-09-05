@@ -101,7 +101,7 @@ Explorez. Réservez. Emménagez.</h1>
                             </select>
             <label for="date">date :</label>
             <input type="datetime-local" class="border border-white font-medium text-center">
-            <button><a href="#" class=" bg-blue-600 p-2 relative md:left-6 rounded-2xl top-4 md:top-0">  <i class="fa-solid fa-magnifying-glass"></i> recherche</a></button>
+            <button><a href="/tailwind css/incristion_client.php" class=" bg-blue-600 p-2 relative md:left-6 rounded-2xl top-4 md:top-0">  <i class="fa-solid fa-magnifying-glass"></i> recherche</a></button>
         </form>
      </div>
 
@@ -129,7 +129,7 @@ Explorez. Réservez. Emménagez.</h1>
         
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/photo ville.jpg" alt="Appartement" class="w-full h-40 object-cover">
+          <img src="/src/assets/images/.jpg" alt="Appartement" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Appartement</h3>
             <p class="text-gray-600 text-sm">Confort et modernité au cœur de la ville.</p>
@@ -138,7 +138,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/photo ville.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <img src="/tailwind css/src/assets/images/villa.jpg" alt="Villa" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Villa</h3>
             <p class="text-gray-600 text-sm">Espace et luxe pour vos séjours.</p>
@@ -174,7 +174,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/photo ville.jpg" alt="Maison" class="w-full h-40 object-cover">
+          <img src="/tailwind css/src/assets/images/maison familiale.jpg" alt="Maison" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Maison</h3>
             <p class="text-gray-600 text-sm">Parfait pour les familles.</p>
