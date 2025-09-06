@@ -84,5 +84,15 @@ require 'inscription_client_action.php';
 </div>
 </section>
 
+<!-- Footer -->
+<footer class="w-full bg-gray-100 py-4 mt-8">
+  <div class="max-w-7xl mx-auto text-center text-gray-600 text-sm">
+    &copy; 2025 Locazen. Tous droits réservés. | 
+    <a href="#" class="text-blue-500 hover:underline">Politique de confidentialité</a> | 
+    <a href="#" class="text-blue-500 hover:underline">Contact</a>
+  </div>
+</footer>
+
+
 </body>
 </html>
