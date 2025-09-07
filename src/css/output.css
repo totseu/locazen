@@ -513,6 +513,9 @@
   .w-82 {
     width: calc(var(--spacing) * 82);
   }
+  .w-96 {
+    width: calc(var(--spacing) * 96);
+  }
   .w-\[\'60\%\'\] {
     width: '60%';
   }
@@ -1157,6 +1160,9 @@
   }
   .text-purple-700 {
     color: var(--color-purple-700);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .text-red-700 {
     color: var(--color-red-700);

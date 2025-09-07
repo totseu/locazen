@@ -37,7 +37,7 @@
     
     <option value="">Choisissez un rôle</option>
     <option value="/tailwind css/incristion_client.php">Client</option>
-    <option value="/tailwind css/s'incristion_proprietaire.html">Propriétaire</option>
+    <option value="/tailwind css/s'incristion_proprietaire.php">Propriétaire</option>
   </select>
 
   <!-- Bouton connexion -->

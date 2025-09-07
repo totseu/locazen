@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 
     $_SESSION['success'] = "✅ Votre demande a été envoyée avec succès. Elle sera vérifiée sous 4h.";
-    header("Location: merci.php");
+    header("Location: page de redirection.propri.php");
     exit;
 }
 ?>

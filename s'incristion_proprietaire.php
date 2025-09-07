@@ -1,8 +1,7 @@
  <?php
  require 'database.php';
  
- 
- 
+ require 'inscription_proprietaireAction.php'
  ?> 
   
   
