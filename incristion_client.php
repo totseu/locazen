@@ -18,15 +18,8 @@ require 'inscription_client_action.php';
 <header class=" fixed w-screen z-50">
     <div class="flex justify-between items-center py-4 px-6 md:px-20 -mt-0">
         <a href="/tailwind css/index.php"><img src="/tailwind css/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
-          <?php
-    if (isset($erroMsg)){
-        echo '<p class="bg-red-500 text-white p-3 rounded-lg text-center absolute top-20 ml-7 md:ml-[35%]">'.$erroMsg.'</p>';
-    }
+        
 
-    if(isset($succeMsg)){
-        echo '<p class="bg-green-500 text-white p-3 rounded-lg text-center absolute top-20 ml-7 md:ml-[35%]">'.$succeMsg.'</p>';
-    }
-    ?>
        
 </header>
 
@@ -38,6 +31,17 @@ require 'inscription_client_action.php';
  
     <div class="bg-white shadow-lg rounded-lg p-10 w-full max-w-2xl">
         <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">Inscription Client</h2>
+        <?php if (isset($erroMsg)) { ?>
+    <div class="fixed top-20 left-[50%] transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
+        <?= $erroMsg ?>
+    </div>
+<?php } ?>
+
+<?php if (isset($succeMsg)) { ?>
+    <div class="fixed top-20 left-[42%] transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
+        <?= $succeMsg ?>
+    </div>
+<?php } ?>
         <p class="text-gray-600 mb-6 text-center">
             Remplissez ce formulaire pour créer votre compte client sur Locazen.
         </p>

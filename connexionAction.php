@@ -1,82 +1,75 @@
 <?php
 
-//validation du formulaire
 
-if(isset($_POST['valider'])){
+require 'database.php';
 
-    if(!empty($_POST['email']) and !empty($_POST['mdp']) and !empty($_POST['role']) ){
+// Validation du formulaire
+if (isset($_POST['valider'])) {
 
-        //connexion a la base de donnee 
-        require 'database.php';
+    if (!empty($_POST['Email']) && !empty($_POST['mdp']) && !empty($_POST['role'])) {
 
-        //creation des variables 
-        $email=htmlspecialchars($_POST['email']);
-        $mdp=htmlspecialchars($_POST['mdp']);
-        $role=htmlspecialchars($_POST['role']);
+        // Variables sécurisées
+        $email = htmlspecialchars($_POST['Email']);
+        $mdp   = $_POST['mdp']; // pas besoin de htmlspecialchars ici
+        $role  = htmlspecialchars($_POST['role']);
 
-        if($role == "client"){
-            //verifier si l'utilisateur existe dans la base de donnee
-            $verifUser = $bdd->prepare("SELECT * FROM users WHERE email = ? ");
-            $verifUser->execute(array($email));
-    
-            if($verifUser->rowCount() > 0){
-                //recuperer les infos de l'utilisateur 
-                $userIfos = $verifUser->fetch();
-    
-                //verifier le mot de passe 
-                if(password_verify($mdp, $userIfos['mdp'])){
-                    //stocker les infos dans une session
-                    $_SESSION['auth'] = true;
-                    $_SESSION['id']= $userIfos['id'];
-                    $_SESSION['nom']= $userIfos['nom'];
-                    $_SESSION['email']= $userIfos['email'];
-                    $_SESSION['Tel']= $userIfos['Tel'];
-    
-                    //redirection vers la page d'accueil
-                    header('location: texte_client.php?id='.$_SESSION['id']);
-    
-                }else{
-                    $erroMsg="mot de passe incorrect";
+        if ($role === "client") {
+
+            // Vérifier utilisateur client
+            $verifUser = $bdd->prepare("SELECT * FROM client WHERE Email = ?");
+            $verifUser->execute([$email]);
+
+            if ($verifUser->rowCount() > 0) {
+                $userInfos = $verifUser->fetch();
+
+                if (password_verify($mdp, $userInfos['mdp'])) {
+                    // Stocker en session
+                    $_SESSION['auth']  = true;
+                    $_SESSION['id']    = $userInfos['id'];
+                    $_SESSION['Nom']   = $userInfos['Nom'];
+                    $_SESSION['Email'] = $userInfos['Email'];
+                    $_SESSION['Tel']   = $userInfos['Tel'];
+
+                    header('Location: texte_client.php');
+                    exit;
+                } else {
+                    $erroMsg = "Mot de passe incorrect";
                 }
-    
-            }else{
-                $erroMsg="cet utilisateur n'existe pas";
+            } else {
+                $erroMsg = "Cet utilisateur n'existe pas";
             }
 
-        }elseif($role == "proprietaire"){
+        } elseif ($role === "proprietaire") {
 
-            //verifier si l'utilisateur existe dans la base de donnee
-            $verifUser = $bdd->prepare("SELECT * FROM proprietaire WHERE email = ? ");
-            $verifUser->execute(array($email));
-    
-            if($verifUser->rowCount() > 0){
-                //recuperer les infos de l'utilisateur 
-                $userIfos = $verifUser->fetch();
-    
-                //verifier le mot de passe 
-                if(password_verify($mdp, $userIfos['mdp'])){
-                    //stocker les infos dans une session
-                    $_SESSION['auth'] = true;
-                    $_SESSION['id']= $userIfos['id'];
-                    $_SESSION['nom']= $userIfos['nom'];
-                     $_SESSION['email']= $userIfos['email'];
-                        $_SESSION['Tel']= $userIfos['Tel'];
+            // Vérifier utilisateur propriétaire
+            $verifUser = $bdd->prepare("SELECT * FROM proprietaire WHERE Email = ?");
+            $verifUser->execute([$email]);
 
-                    //redirection vers la page d'accueil
-                    header('location: texte_proprietaire.php');
-                }else{
-                    $erroMsg="mot de passe incorrect";
+            if ($verifUser->rowCount() > 0) {
+                $userInfos = $verifUser->fetch();
+
+                if (password_verify($mdp, $userInfos['mdp'])) {
+                    $_SESSION['auth']  = true;
+                    $_SESSION['id']    = $userInfos['id'];
+                    $_SESSION['Nom']   = $userInfos['Nom'];
+                    $_SESSION['Email'] = $userInfos['Email'];
+                    $_SESSION['Tel']   = $userInfos['Tel'];
+
+                    header('Location: texte_proprietaire.php');
+                    exit;
+                } else {
+                    $erroMsg = "Mot de passe incorrect";
                 }
-            }else{
-                $erroMsg="cet utilisateur n'existe pas";
+            } else {
+                $erroMsg = "Cet utilisateur n'existe pas";
             }
-        }else{
-            $erroMsg="veuillez choisir un role";
+
+        } else {
+            $erroMsg = "Veuillez choisir un rôle valide";
         }
-    }else{
-        $erroMsg="veuillez completer tous les champs";
+
+    } else {
+        $erroMsg = "Veuillez compléter tous les champs";
     }
 }
-
-
 ?>

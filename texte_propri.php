@@ -2,66 +2,6 @@
 // texte_propri.php
 require 'database.php'; // connexion PDO ($bdd)
 
-if (isset($_POST['valider'])) {
-    //Sécuriser les données reçues
-    $type        = htmlspecialchars($_POST['type']);
-    $titre       = htmlspecialchars($_POST['titre']);
-    $adresse     = htmlspecialchars($_POST['adresse']);
-    $prix        = (int) $_POST['prix'];
-    $superficie  = (int) $_POST['superficie'];
-    $description = htmlspecialchars($_POST['description']);
-
-    //Insérer le bien dans la table "biens"
-    $stmt = $bdd->prepare("INSERT INTO biens (type, titre, adresse, prix, superficie, description, date_pub) 
-                           VALUES (?, ?, ?, ?, ?, ?, NOW())");
-    $stmt->execute([$type, $titre, $adresse, $prix, $superficie, $description]);
-
-    $id_bien = $bdd->lastInsertId(); // ID du bien inséré
-
-    //Créer les dossiers d’upload si nécessaire
-    if (!is_dir("uploads/images")) mkdir("uploads/images", 0777, true);
-    if (!is_dir("uploads/videos")) mkdir("uploads/videos", 0777, true);
-
-    //Gestion des photos
-    if (!empty($_FILES['images']['name'][0])) {
-        foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
-            if ($_FILES['images']['error'][$key] === 0) {
-                $ext = strtolower(pathinfo($_FILES['images']['name'][$key], PATHINFO_EXTENSION));
-                $nomFichier = uniqid("img_") . "." . $ext;
-                $chemin = "uploads/images/" . $nomFichier;
-
-                if (move_uploaded_file($tmp_name, $chemin)) {
-                    $stmt = $bdd->prepare("INSERT INTO medias (bien_id, type, chemin) VALUES (?, 'image', ?)");
-                    $stmt->execute([$id_bien, $chemin]);
-                }
-            }
-        }
-    }
-
-    // Gestion des vidéos
-    if (!empty($_FILES['videos']['name'][0])) {
-        foreach ($_FILES['videos']['tmp_name'] as $key => $tmp_name) {
-            if ($_FILES['videos']['error'][$key] === 0) {
-                $ext = strtolower(pathinfo($_FILES['videos']['name'][$key], PATHINFO_EXTENSION));
-                $nomFichier = uniqid("vid_") . "." . $ext;
-                $chemin = "uploads/videos/" . $nomFichier;
-
-                if (move_uploaded_file($tmp_name, $chemin)) {
-                    $stmt = $bdd->prepare("INSERT INTO medias (bien_id, type, chemin) VALUES (?, 'video', ?)");
-                    $stmt->execute([$id_bien, $chemin]);
-                }
-            }
-        }
-    }
-   
-
-
-    // Message de confirmation
-    echo "<p style='color:green;font-weight:bold;'> Bien publié avec succès !</p>";
-}
-
-
-
 
 ?>
 
