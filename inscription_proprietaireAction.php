@@ -3,7 +3,15 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require 'database.php'; // connexion PDO $bdd
+try {
+    
+    //connexion a la base de donnee
+    //code...
+    $bdd = new  PDO("mysql:host=localhost;dbname=locazen;charset=utf8", "root","");
+} catch (Exception $e) {
+    //throw $th;
+    die('une erreur a ete trouvee : ' .$e->getMessage());
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 

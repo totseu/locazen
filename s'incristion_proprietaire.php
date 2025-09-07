@@ -1,7 +1,7 @@
  <?php
  require 'database.php';
  
- require 'inscription_proprietaireAction.php'
+ require 'inscription_proprietaireAction.php';
  ?> 
   
   
@@ -53,7 +53,8 @@ if (session_status() === PHP_SESSION_NONE) {
     <!-- <h1 class="text-2xl font-bold text-gray-800 mb-6">Vérification du Propriétaire</h1> -->
     <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center">Inscription Propriétaire</h2>
     
-    <form class="space-y-6" method="POST" action="inscription_proprietaireAction.php" ebctype="multipart/form-data">
+   <form class="space-y-6" method="POST" action="inscription_proprietaireAction.php" enctype="multipart/form-data">
+
 
       <!-- Informations personnelles -->
       <h2 class="text-2xl font-semibold text-gray-700 border-b pb-2">Informations personnelles</h2>
