@@ -5,7 +5,59 @@ if(!isset($_SESSION['admin_id'])){
     header("Location: connectionAdmin.php");
     exit();
 }
+
+
+
+
+try {
+    
+    //connexion a la base de donnee
+    //code...
+    $bdd = new  PDO("mysql:host=localhost;dbname=locazen;charset=utf8", "root","");
+} catch (Exception $e) {
+    //throw $th;
+    die('une erreur a ete trouvee : ' .$e->getMessage());
+}
+
+// Vérifie que l'admin est connecté
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login_admin.php");
+    exit;
+}
+
+// Récupérer tous les propriétaires
+$stmt = $bdd->query("SELECT * FROM proprietaire ORDER BY date_creation DESC");
+$proprietaires = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
+
+
+// Vérifie que l'admin est connecté
+if (!isset($_SESSION['admin_id'])) {
+    header("Location: login_admin.php");
+    exit;
+}
+
+// Vérifie que l'ID est fourni
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
+    $id = intval($_POST['id']);
+
+    $stmt = $bdd->prepare("UPDATE proprietaire SET statut = 'validé' WHERE id = ?");
+    $stmt->execute([$id]);
+
+    $_SESSION['success'] = "Propriétaire validé avec succès !";
+    header("Location: dashboard_admin.php"); // redirection après validation
+    exit;
+}
+
 ?>
+
+
+
+
+
 
 
 <!DOCTYPE html>
@@ -166,24 +218,44 @@ if(!isset($_SESSION['admin_id'])){
           <th class="px-6 py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider">Actions</th>
         </tr>
       </thead>
-      <tbody class="bg-white divide-y divide-gray-200">
-        <tr class="hover:bg-gray-50 transition">
-          <td class="px-6 py-4 text-gray-800 font-medium">Nathan Totseu</td>
-          <td class="px-6 py-4 text-gray-600">proprio@mail.com</td>
-          <td class="px-6 py-4">
-            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
-              En attente
+     <tbody class="bg-white divide-y divide-gray-200">
+<?php foreach ($proprietaires as $p): ?>
+    <tr class="hover:bg-gray-50 transition">
+        <td class="px-6 py-4 text-gray-800 font-medium"><?= htmlspecialchars($p['Nom']); ?></td>
+        <td class="px-6 py-4 text-gray-600"><?= htmlspecialchars($p['Email']); ?></td>
+        <td class="px-6 py-4">
+            <?php
+            $statut = $p['statut'];
+            $color = match($statut) {
+                'en attente' => 'bg-yellow-100 text-yellow-800',
+                'validé' => 'bg-green-100 text-green-800',
+                'payé' => 'bg-blue-100 text-blue-800',
+                'actif' => 'bg-gray-100 text-gray-800',
+                default => 'bg-gray-100 text-gray-800'
+            };
+            ?>
+            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full <?= $color ?>">
+                <?= ucfirst($statut) ?>
             </span>
-          </td>
-          <td class="px-6 py-4 text-right space-x-2">
-            <button onclick="openModalValidation('Nathan Totseu','proprio@mail.com','+237 690000000','Yaoundé, Cameroun','uploads/cni_nathan.jpg','05/09/2025')" 
-              class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition">
-              Voir Détails
-            </button>
-          </td>
-        </tr>
-        <!-- Ajouter d'autres propriétaires en attente ici -->
-      </tbody>
+        </td>
+        <td class="px-6 py-4 text-right space-x-2">
+           <button onclick="openModalValidation(
+    '<?= addslashes($p['Nom']); ?>',
+    '<?= addslashes($p['Email']); ?>',
+    '<?= addslashes($p['Tel']); ?>',
+    '<?= addslashes($p['AdressePersonnelle']); ?>',
+    '<?= addslashes($p['imageIdentite']); ?>',
+    '<?= $p['id']; ?>'  <!-- ici on passe l'ID -->
+)" 
+class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition">
+    Voir Détails
+</button>
+
+        </td>
+    </tr>
+<?php endforeach; ?>
+</tbody>
+
     </table>
   </div>
 </section>
@@ -196,17 +268,29 @@ if(!isset($_SESSION['admin_id'])){
       <!-- Contenu dynamique -->
     </ul>
     <div class="flex justify-end mt-6 gap-3">
-      <button onclick="closeModalValidation()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Fermer</button>
-      <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Valider</button>
-      <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Rejeter</button>
+      <!-- Formulaire de validation/rejet -->
+    <form id="formValidation" method="POST" action="valider_proprietaire.php" class="flex justify-end mt-6 gap-3">
+        <input type="hidden" name="id" id="modalProprioId" value="">
+        <button type="submit" name="action" value="valider" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+            Valider
+        </button>
+        <button type="submit" name="action" value="rejeter" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+            Rejeter
+        </button>
+       <button type="button" onclick="closeModalValidation()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">
+    Fermer
+</button>
+
+    </form>
     </div>
   </div>
 </div>
 
 <script>
-  function openModalValidation(nom, email, tel, adresse, piece, dateInscription) {
+ function openModalValidation(nom, email, tel, adresse, piece, id) {
     const modal = document.getElementById("modalValidation");
     const content = document.getElementById("modalValidationContent");
+
     content.innerHTML = `
       <li><strong>Nom :</strong> ${nom}</li>
       <li><strong>Email :</strong> ${email}</li>
@@ -215,14 +299,17 @@ if(!isset($_SESSION['admin_id'])){
       <li><strong>Pièce d'identité :</strong> 
         <a href="${piece}" target="_blank" class="text-blue-600 underline">Voir fichier</a>
       </li>
-      <li><strong>Date inscription :</strong> ${dateInscription}</li>
     `;
-    modal.classList.remove("hidden");
-  }
 
-  function closeModalValidation() {
+    // Passer l'ID du propriétaire au formulaire
+    document.getElementById("modalProprioId").value = id;
+
+    modal.classList.remove("hidden");
+}
+function closeModalValidation() {
     document.getElementById("modalValidation").classList.add("hidden");
-  }
+}
+
 </script>
 
 

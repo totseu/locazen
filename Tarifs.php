@@ -1,3 +1,27 @@
+<?php
+
+require 'database.php';
+
+// Vérifie si un propriétaire est connecté ou validé via l'admin
+if (!isset($_GET['proprio_id'])) {
+    die("Accès refusé");
+}
+$id_proprio = intval($_GET['proprio_id']);
+
+// Récupère les infos du propriétaire
+$stmt = $bdd->prepare("SELECT Nom, Email, statut FROM proprietaire WHERE id = ?");
+$stmt->execute([$id_proprio]);
+$proprio = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Si le statut n'est pas "validé", redirige
+if ($proprio['statut'] !== 'validé') {
+    die("Votre compte n'est pas encore validé par l'administrateur.");
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
