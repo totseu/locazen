@@ -55,7 +55,7 @@ if(!isset($_SESSION['auth'])){
     <div class="p-6 border-b bg-blue-600 flex items-center gap-4">
         <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="client" class="w-14 h-14 rounded-full object-cover border-2 border-white">
         <div>
-          <h2 class="text-lg font-bold">  <?php  if(isset($_SESSION['nom'])){ echo $_SESSION['nom']; } ?> </h2> 
+          <h2 class="text-lg font-bold">  <?php  if(isset($_SESSION['Nom'])){ echo $_SESSION['Nom']; } ?> </h2> 
           <p class="text-sm text-white/80">client</p>
         </div>
       </div>

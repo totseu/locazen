@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['admin_id'])){
-    header("Location: login_admin.php");
+    header("Location: connectionAdmin.php");
     exit();
 }
 ?>
@@ -52,9 +52,14 @@ if(!isset($_SESSION['admin_id'])){
         <button onclick="showSection('parametres')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">⚙️ Paramètres</button>
       </nav>
       <div class="p-4 border-t border-white/20">
-        <button class="w-full bg-red-500 py-2 rounded-lg font-semibold hover:bg-red-600">🚪 Déconnexion</button>
+        <a href="/tailwind css/deconnectionAdmin.php" class="w-full bg-red-500 py-2 rounded-lg font-semibold hover:bg-red-6000">
+    Déconnexion
+</a>
+
       </div>
     </aside>
+
+  
 
     <!-- Content -->
     <main class="flex-1 p-8 overflow-y-auto">
