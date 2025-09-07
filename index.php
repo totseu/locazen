@@ -326,9 +326,9 @@ Explorez. Réservez. Emménagez.</h1>
 
        <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/maison simple 7.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">maison moderne</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -340,9 +340,9 @@ Explorez. Réservez. Emménagez.</h1>
 
        <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/bureau presentation vide4.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">bureau proffesionel</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -353,9 +353,9 @@ Explorez. Réservez. Emménagez.</h1>
 
        <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/maison simple 5.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">maison simple </h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -366,9 +366,9 @@ Explorez. Réservez. Emménagez.</h1>
 
        <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/chambre meublée.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">chambre meublée</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -379,9 +379,9 @@ Explorez. Réservez. Emménagez.</h1>
 
        <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/apparemment4.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">appartement</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -393,9 +393,9 @@ Explorez. Réservez. Emménagez.</h1>
 
        <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?villa" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/boutique vide présentation 1.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">boutique  moderne</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -406,9 +406,9 @@ Explorez. Réservez. Emménagez.</h1>
 
       <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="https://source.unsplash.com/400x300/?studio" alt="Studio" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/maisn meubles.jpg" alt="Studio" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Studio cosy</h3>
+          <h3 class="text-lg font-bold">maison meubles</h3>
           <p class="text-gray-500 text-sm mb-2">Quartier étudiant</p>
           <p class="text-blue-600 font-semibold mb-4">550 facf / mois</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
