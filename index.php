@@ -129,7 +129,7 @@ Explorez. Réservez. Emménagez.</h1>
         
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/.jpg" alt="Appartement" class="w-full h-40 object-cover">
+          <img src="/tailwind css/src/assets/images/appartement.jpg" alt="Appartement" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Appartement</h3>
             <p class="text-gray-600 text-sm">Confort et modernité au cœur de la ville.</p>
@@ -147,7 +147,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/photo ville.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <img src="/tailwind css/src/assets/images/boutique presentation.jpg" alt="Villa" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Boutique</h3>
             <p class="text-gray-600 text-sm">Parfait pour les commercants.</p>
@@ -156,7 +156,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/photo ville.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <img src="/tailwind css/src/assets/images/bureau vide.jpg" alt="Villa" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Bureau</h3>
             <p class="text-gray-600 text-sm">parfait pour les entreprises.</p>
@@ -165,7 +165,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/src/assets/images/photo ville.jpg" alt="Studio" class="w-full h-40 object-cover">
+          <img src="/tailwind css/src/assets/images/studio.jpg" alt="Studio" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Studio</h3>
             <p class="text-gray-600 text-sm">Idéal pour les courts séjours.</p>
