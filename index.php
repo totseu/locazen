@@ -300,9 +300,9 @@ Explorez. Réservez. Emménagez.</h1>
       
       <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/tailwind css/src/assets/images/immeuble1.jpg" alt="Appartement" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/Yaoundé.jpg" alt="Appartement" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Appartement moderne</h3>
+          <h3 class="text-lg font-bold">Appartement moderne yaoundé</h3>
           <p class="text-gray-500 text-sm mb-2">Centre-ville • 3 pièces</p>
           <p class="text-blue-600 font-semibold mb-4">250 000 facf</p>
            <a href="/voir_detail.html"><button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
@@ -313,9 +313,9 @@ Explorez. Réservez. Emménagez.</h1>
 
       <!-- Carte -->
       <div data-aos="fade-up" class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/tailwind css/src/assets/images/immeuble1.jpg" alt="Villa" class="w-full h-48 object-cover">
+        <img src="/tailwind css/src/assets/images/boutique vide.jpg" alt="Villa" class="w-full h-48 object-cover">
         <div class="p-4">
-          <h3 class="text-lg font-bold">Villa de luxe</h3>
+          <h3 class="text-lg font-bold">boutique vide Douala</h3>
           <p class="text-gray-500 text-sm mb-2">Bord de mer • 5 chambres</p>
           <p class="text-blue-600 font-semibold mb-4">1 200 000 facf</p>
           <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">

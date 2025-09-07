@@ -46,13 +46,13 @@ require 'inscription_client_action.php';
 
             <div>
                 <label for="nom" class="block text-gray-700 font-medium mb-1">Nom complet</label>
-                <input type="text" name="nom" id="nom" placeholder="Ex: Jean Dupont"
+                <input type="text" name="Nom" id="nom" placeholder="Ex: Jean Dupont"
                     class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" >
             </div>
 
             <div>
                 <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
-                <input type="email" name="email" id="email" placeholder="exemple@mail.com"
+                <input type="email" name="Email" id="email" placeholder="exemple@mail.com"
                     class="w-full border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-500" >
             </div>
 
