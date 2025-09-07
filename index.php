@@ -552,7 +552,7 @@ Explorez. Réservez. Emménagez.</h1>
   <p class="text-lg mb-8 max-w-xl mx-auto">
     Inscrivez-vous maintenant et profitez des meilleures offres de location, garanties et sécurisées.
   </p>
-  <a href="/s'incristion_client.html" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">
+  <a href="/tailwind css/incristion_client.php" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">
     Je m’inscris
   </a>
 </section>
@@ -566,7 +566,7 @@ Explorez. Réservez. Emménagez.</h1>
   <p class="text-lg mb-8 max-w-xl mx-auto">
     Rejoignez Locazen dès aujourd’hui et mettez en avant vos appartements, villas, studios, bureau, Boutique ou maisons pour atteindre un maximum de locataires fiables.
   </p>
-  <a href="/s'incristion_proprietaire.html" 
+  <a href="/tailwind css/s'incristion_proprietaire.html" 
      class="inline-block bg-white text-green-600 font-semibold px-8 py-3 rounded-full hover:bg-gray-100 transition">
      Publier un bien
   </a>

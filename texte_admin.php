@@ -22,7 +22,7 @@
   <div class="flex h-screen">
 
     <!-- Sidebar -->
-    <aside class="w-72 bg-gradient-to-b from-blue-700 to-indigo-800 text-white flex flex-col shadow-xl">
+    <aside class="w-72 bg-gradient-to-b bg-blue-600 from-blue-700 to-indigo-800 text-white flex flex-col shadow-xl">
       <div class="p-6 text-2xl font-bold border-b border-white/20 flex items-center gap-2">
         🏠 Locazen Admin
       </div>
@@ -30,6 +30,13 @@
         <button onclick="showSection('dashboard')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">📊 Tableau de bord</button>
         <button onclick="showSection('biens')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">📦 Gérer Biens</button>
         <button onclick="showSection('proprietaires')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">👤 Propriétaires</button>
+        <button 
+  onclick="showSection('validation_proprio')" 
+  class="w-full text-left px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-white/10 transition"
+>
+  ✅ Validation Propriétaires
+</button>
+
         <button onclick="showSection('clients')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">🧑‍💼 Clients</button>
         <button onclick="showSection('transactions')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">💳 Transactions</button>
         <button onclick="showSection('parametres')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">⚙️ Paramètres</button>
@@ -131,6 +138,79 @@
         </table>
       </section>
 
+      <!-- Validation Propriétaires -->
+<section id="validation_proprio" class="section hidden">
+  <h2 class="text-2xl font-bold mb-6 text-gray-800">✅ Validation des Propriétaires</h2>
+  <div class="overflow-x-auto bg-white shadow-lg rounded-2xl">
+    <table class="min-w-full divide-y divide-gray-200">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Nom</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Email</th>
+          <th class="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">Statut</th>
+          <th class="px-6 py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="bg-white divide-y divide-gray-200">
+        <tr class="hover:bg-gray-50 transition">
+          <td class="px-6 py-4 text-gray-800 font-medium">Nathan Totseu</td>
+          <td class="px-6 py-4 text-gray-600">proprio@mail.com</td>
+          <td class="px-6 py-4">
+            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+              En attente
+            </span>
+          </td>
+          <td class="px-6 py-4 text-right space-x-2">
+            <button onclick="openModalValidation('Nathan Totseu','proprio@mail.com','+237 690000000','Yaoundé, Cameroun','uploads/cni_nathan.jpg','05/09/2025')" 
+              class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition">
+              Voir Détails
+            </button>
+          </td>
+        </tr>
+        <!-- Ajouter d'autres propriétaires en attente ici -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Modal Validation Propriétaire -->
+<div id="modalValidation" class="fixed inset-0 bg-black/50 hidden flex justify-center items-center z-50">
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg">
+    <h3 class="text-2xl font-bold mb-4 text-gray-800">📄 Détails du propriétaire</h3>
+    <ul id="modalValidationContent" class="space-y-3 text-gray-700">
+      <!-- Contenu dynamique -->
+    </ul>
+    <div class="flex justify-end mt-6 gap-3">
+      <button onclick="closeModalValidation()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Fermer</button>
+      <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">Valider</button>
+      <button class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">Rejeter</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModalValidation(nom, email, tel, adresse, piece, dateInscription) {
+    const modal = document.getElementById("modalValidation");
+    const content = document.getElementById("modalValidationContent");
+    content.innerHTML = `
+      <li><strong>Nom :</strong> ${nom}</li>
+      <li><strong>Email :</strong> ${email}</li>
+      <li><strong>Téléphone :</strong> ${tel}</li>
+      <li><strong>Adresse :</strong> ${adresse}</li>
+      <li><strong>Pièce d'identité :</strong> 
+        <a href="${piece}" target="_blank" class="text-blue-600 underline">Voir fichier</a>
+      </li>
+      <li><strong>Date inscription :</strong> ${dateInscription}</li>
+    `;
+    modal.classList.remove("hidden");
+  }
+
+  function closeModalValidation() {
+    document.getElementById("modalValidation").classList.add("hidden");
+  }
+</script>
+
+
       <!-- Clients -->
       <section id="clients" class="section hidden">
         <h2 class="text-2xl font-bold mb-6 text-gray-800">🧑‍💼 Gestion des Clients</h2>
@@ -171,6 +251,8 @@
           </li>
         </ul>
       </section>
+
+
 
       <!-- Paramètres -->
       <section id="parametres" class="section hidden">
@@ -234,6 +316,13 @@
         }]
       }
     });
-  </script>
+    </script>
+
+      
+
+
+
+
+
 </body>
 </html>

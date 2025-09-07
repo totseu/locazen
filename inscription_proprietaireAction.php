@@ -5,7 +5,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require 'database.php'; // connexion PDO $bdd
 
-if (isset($_POST['valider'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Récupération et nettoyage des champs
     $nomComple = trim(htmlspecialchars($_POST['nomComple'] ?? ''));
@@ -29,10 +29,20 @@ if (isset($_POST['valider'])) {
     $reposeSignatureHypothes = trim(htmlspecialchars($_POST['reposeSignatureHypothes'] ?? ''));
     $description = trim(htmlspecialchars($_POST['description'] ?? ''));
 
-    // 2️⃣ Vérification que tous les champs obligatoires sont remplis
+    // Vérification des champs obligatoires
     if (!$nomComple || !$numeroPieceIdentite || !$AdressePersonnelle || !$numeroTel || !$adresseEmail || !$typeBien || !$reponsePropri || !$reponsePropriCertificat || !$reposeSignature || !$reposeSignatureHypothes || !$description) {
-        $erroMsg = "Veuillez remplir tous les champs obligatoires.";
-        exit($erroMsg);
+        $_SESSION['error'] = " Veuillez remplir tous les champs obligatoires.";
+        header("Location: inscription_proprietaire.php");
+        exit;
+    }
+
+    // Vérifier si l'email existe déjà
+    $checkEmail = $bdd->prepare("SELECT id FROM proprietaire WHERE Email = ?");
+    $checkEmail->execute([$adresseEmail]);
+    if ($checkEmail->rowCount() > 0) {
+        $_SESSION['error'] = " Cet email est déjà utilisé.";
+        header("Location: inscription_proprietaire.php");
+        exit;
     }
 
     // Gestion des fichiers uploadés
@@ -44,23 +54,35 @@ if (isset($_POST['valider'])) {
     $fichiers = ['imageIdentite', 'imageDocument', 'imagePDF'];
     $cheminsFichiers = [];
 
+    $extensionsAutorisees = ['jpg', 'jpeg', 'png', 'pdf'];
+    $tailleMax = 5 * 1024 * 1024; // 5 Mo
+
     foreach ($fichiers as $file) {
         if (isset($_FILES[$file]) && $_FILES[$file]['error'] === 0) {
-            $ext = pathinfo($_FILES[$file]['name'], PATHINFO_EXTENSION);
+            $ext = strtolower(pathinfo($_FILES[$file]['name'], PATHINFO_EXTENSION));
+
+            // Vérifier extension
+            if (!in_array($ext, $extensionsAutorisees)) {
+                $_SESSION['error'] = " Le fichier $file doit être en JPG, PNG ou PDF.";
+                header("Location: inscription_proprietaire.php");
+                exit;
+            }
+
+            // Vérifier taille
+            if ($_FILES[$file]['size'] > $tailleMax) {
+                $_SESSION['error'] = " Le fichier $file dépasse la taille maximale de 5 Mo.";
+                header("Location: inscription_proprietaire.php");
+                exit;
+            }
+
             $nomFichier = uniqid() . '.' . $ext;
             move_uploaded_file($_FILES[$file]['tmp_name'], $uploadsDir . $nomFichier);
             $cheminsFichiers[$file] = $uploadsDir . $nomFichier;
         } else {
-            $erroMsg = "Erreur lors de l'upload de $file";
-            exit($erroMsg);
+            $_SESSION['error'] = " Erreur lors de l'upload du fichier $file.";
+            header("Location: inscription_proprietaire.php");
+            exit;
         }
-    }
-
-    // Vérifier si l'email existe déjà
-    $checkEmail = $bdd->prepare("SELECT id FROM proprietaire WHERE Email = ?");
-    $checkEmail->execute([$adresseEmail]);
-    if ($checkEmail->rowCount() > 0) {
-        exit("Cet email est déjà utilisé.");
     }
 
     //  Insertion dans la base de données
@@ -84,7 +106,9 @@ if (isset($_POST['valider'])) {
         $cheminsFichiers['imageIdentite'], $cheminsFichiers['imageDocument'], $cheminsFichiers['imagePDF']
     ]);
 
-    //  Message succès
-    echo "Votre demande a été envoyée avec succès. Elle sera vérifiée sous 4h.";
+    $_SESSION['success'] = "✅ Votre demande a été envoyée avec succès. Elle sera vérifiée sous 4h.";
+    header("Location: merci.php");
+    exit;
 }
 ?>
+
