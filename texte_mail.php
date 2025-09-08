@@ -1,44 +1,46 @@
 <?php
+// Activer les erreurs pour debug
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+
+// Inclure PHPMailer
+// require 'vendor/autoload.php'; // si installé avec Composer
+// ou sinon : require 'PHPMailer/PHPMailer.php'; + les autres fichiers manuellement
 
 require 'lib/phpmailer/Exception.php';
 require 'lib/phpmailer/PHPMailer.php';
 require 'lib/phpmailer/SMTP.php';
 
-Serveur SMTP : smtp.gmail.com
-Port : 587 (TLS) ou 465 (SSL)
-Sécurité : TLS ou SSL
-
 
 $mail = new PHPMailer(true);
 
 try {
-    // Configuration serveur Gmail
+    // Paramètres serveur SMTP Gmail
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com';
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'tonemail@gmail.com'; // ton Gmail
-    $mail->Password   = 'mot_de_passe_application'; // mot de passe d’application (16 caractères généré par Google)
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Username   = 'totseunathan@gmail.com';   // ton adresse Gmail
+    $mail->Password   = 'gyybnsgxhalvusry';       // ton mot de passe d'application (sans espaces)
+    $mail->SMTPSecure = 'tls'; 
     $mail->Port       = 587;
 
     // Expéditeur
-    $mail->setFrom('tonemail@gmail.com', 'Locazen');
+    $mail->setFrom('totseunathan@gmail.com', 'Locazen Test');
 
     // Destinataire
-    $mail->addAddress('destinataire@mail.com', 'Nom Propriétaire');
+    $mail->addAddress('mamtonaomie12@example.com'); // mets ton autre adresse Gmail ou Outlook pour test
 
-    // Contenu
+    // Contenu du mail
     $mail->isHTML(true);
-    $mail->Subject = 'Test Locazen';
-    $mail->Body    = '<h1>✅ Test réussi</h1><p>Ceci est un email envoyé avec PHPMailer.</p>';
-    $mail->AltBody = '✅ Test réussi - Ceci est un email envoyé avec PHPMailer.';
+    $mail->Subject = '✅ Test SMTP Gmail depuis Locazen';
+    $mail->Body    = 'Ceci est un test avec <b>PHPMailer + Gmail SMTP</b>.';
 
     // Envoi
     $mail->send();
-    echo "✅ Email envoyé avec succès !";
-
+    echo '📩 Message envoyé avec succès !';
 } catch (Exception $e) {
-    echo "❌ Erreur : {$mail->ErrorInfo}";
+    echo "❌ Erreur d'envoi : {$mail->ErrorInfo}";
 }
