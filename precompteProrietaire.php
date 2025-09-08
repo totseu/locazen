@@ -4,7 +4,7 @@ require 'database.php';
 
 // Vérifie si le propriétaire est connecté
 if(!isset($_SESSION['proprio_id'])){
-    header("Location: login_proprio.php");
+    header("Location: connexion.proprietaire.php");
     exit;
 }
 
@@ -45,7 +45,7 @@ $statut = $proprio['statut'];
         <a href="#publier" class="text-gray-700 hover:text-blue-600 font-medium">Publier</a>
       </div>
       <div>
-        <a href="deconnexion_proprio.php" class="text-red-600 font-semibold hover:underline">Déconnexion</a>
+        <a href="index.php" class="text-red-600 font-semibold hover:underline">Déconnexion</a>
       </div>
     </div>
   </nav>
