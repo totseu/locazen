@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Vérification des champs obligatoires
     if (!$nomComple || !$numeroPieceIdentite || !$AdressePersonnelle || !$numeroTel || !$adresseEmail || !$typeBien || !$reponsePropri || !$reponsePropriCertificat || !$reposeSignature || !$reposeSignatureHypothes || !$description) {
         $_SESSION['error'] = " Veuillez remplir tous les champs obligatoires.";
-        header("Location: inscription_proprietaire.php");
+        header("Location: s'incristion_proprietaire.php");
         exit;
     }
 
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $checkEmail->execute([$adresseEmail]);
     if ($checkEmail->rowCount() > 0) {
         $_SESSION['error'] = " Cet email est déjà utilisé.";
-        header("Location: inscription_proprietaire.php");
+        header("Location: s'incristion_proprietaire.php");
         exit;
     }
 

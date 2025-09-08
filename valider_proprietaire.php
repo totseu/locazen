@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
 
 
 
+
+
+
     $stmt = $bdd->prepare("UPDATE proprietaire SET statut = 'validé', mdp = ? WHERE id = ?");
 $stmt->execute([$hashedPassword, $id]);
 

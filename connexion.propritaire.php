@@ -1,5 +1,4 @@
 <?php
-// connexion.php
 
 require 'database.php';
 
@@ -9,20 +8,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
-    $stmt = $bdd->prepare("SELECT * FROM proprietaire WHERE email = ?");
+    $stmt = $bdd->prepare("SELECT * FROM proprietaire WHERE Email = ?");
     $stmt->execute([$email]);
-    $proprio = $stmt->fetch();
+    $proprio = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($proprio && password_verify($password, $proprio['password'])) {
+    if ($proprio && password_verify($password, $proprio['mdp'])) { // <-- mdp et non password
         $_SESSION['proprio_id'] = $proprio['id'];
-        $_SESSION['proprio_nom'] = $proprio['nom'];
-        header("Location: dashboard_proprio.php"); // redirection après connexion
+        $_SESSION['proprio_nom'] = $proprio['Nom'];
+        header("Location: precompteProrietaire.php"); // redirection après connexion
         exit();
     } else {
         $error = "❌ Email ou mot de passe incorrect.";
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
