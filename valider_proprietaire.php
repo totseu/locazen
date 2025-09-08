@@ -1,3 +1,5 @@
+<?php
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -18,9 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
     $tempPassword = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 8);
     $hashedPassword = password_hash($tempPassword, PASSWORD_DEFAULT);
 
-    // Mettre à jour le propriétaire
-    $stmt = $bdd->prepare("UPDATE proprietaire SET statut = 'validé', password = ? WHERE id = ?");
-    $stmt->execute([$hashedPassword, $id]);
+
+
+    $stmt = $bdd->prepare("UPDATE proprietaire SET statut = 'validé', mdp = ? WHERE id = ?");
+$stmt->execute([$hashedPassword, $id]);
+
 
     // Récupérer email et nom du propriétaire
     $stmt2 = $bdd->prepare("SELECT Nom, Email FROM proprietaire WHERE id = ?");
@@ -61,3 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
     header("Location: texte_admin.php");
     exit;
 }
+
+
+?>
+
+
