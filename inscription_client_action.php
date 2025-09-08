@@ -14,13 +14,13 @@ if (isset($_POST['valider'])) {
         $mdp   = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
         // Vérifier si l'utilisateur existe déjà
-        $verificationUser = $bdd->prepare("SELECT id FROM client WHERE LOWER(Email) = LOWER(?)");
+        $verificationUser = $bdd->prepare("SELECT id FROM clients WHERE LOWER(Email) = LOWER(?)");
         $verificationUser->execute([$Email]);
 
         if ($verificationUser->rowCount() == 0) {
 
             // Insertion utilisateur
-            $inseruser = $bdd->prepare("INSERT INTO client(Nom, Email, Tel, mdp) VALUES(?,?,?,?)");
+            $inseruser = $bdd->prepare("INSERT INTO clients(Nom, Email, Tel, mdp) VALUES(?,?,?,?)");
             $inseruser->execute([$Nom, $Email, $Tel, $mdp]);
 
             // Récupérer l'ID inséré

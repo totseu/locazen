@@ -16,7 +16,7 @@ if (isset($_POST['valider'])) {
         if ($role === "client") {
 
             // Vérifier utilisateur client
-            $verifUser = $bdd->prepare("SELECT * FROM client WHERE Email = ?");
+            $verifUser = $bdd->prepare("SELECT * FROM clients WHERE Email = ?");
             $verifUser->execute([$email]);
 
             if ($verifUser->rowCount() > 0) {

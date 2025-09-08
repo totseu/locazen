@@ -9,7 +9,7 @@ require 'lib/phpmailer/SMTP.php';
 require 'database.php'; // connexion PDO $bdd
 
 if (!isset($_SESSION['admin_id'])) {
-    header("Location: login_admin.php");
+    header("Location: connectionAdmin.php");
     exit;
 }
 
@@ -54,7 +54,7 @@ $stmt->execute([$hashedPassword, $id]);
 <p>Votre compte propriétaire sur Locazen a été validé par l'administrateur.</p>
 <p>Voici votre mot de passe temporaire : <b>$tempPassword</b></p>
 <p>Veuillez vous connecter et changer votre mot de passe dès la première connexion :<br>
-<a href='https://votre-site.com/connexion_proprietaire.php'>Connexion</a></p>
+<a href='https://locazen.com/connexion_proprietaire.php'>Connexion</a></p>
 <p>Merci,<br>L'équipe Locazen</p>
 ";
 
