@@ -1,5 +1,14 @@
 <?php
-session_start();
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'lib/phpmailer/Exception.php';
+require 'lib/phpmailer/PHPMailer.php';
+require 'lib/phpmailer/SMTP.php';
+
+
 require 'database.php'; // connexion PDO $bdd
 
 if (!isset($_SESSION['admin_id'])) {
@@ -48,7 +57,7 @@ L'équipe Locazen
     }
 
     $_SESSION['success'] = "Propriétaire validé et email envoyé !";
-    header("Location: dashboard_admin.php");
+    header("Location: texte_admin.php");
     exit;
 }
 ?>

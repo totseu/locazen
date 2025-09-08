@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['id'])) {
         <button onclick="showSection('parametres')" class="w-full text-left px-4 py-2 rounded-lg hover:bg-white/10">⚙️ Paramètres</button>
       </nav>
       <div class="p-4 border-t border-white/20">
-        <a href="/tailwind css/deconnectionAdmin.php" class="w-full bg-red-500 py-2 rounded-lg font-semibold hover:bg-red-6000">
+        <a href="/tailwind css/deconnectionAdmin.php" class="w-full bg-red-500 py-2 px-20 rounded-lg font-semibold hover:bg-red-6000">
     Déconnexion
 </a>
 
