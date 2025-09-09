@@ -1,6 +1,6 @@
 <?php
 require 'database.php';
-session_start(); // Assure-toi que la session est bien démarrée
+ // Assure-toi que la session est bien démarrée
 
 // Vérifier si le propriétaire est connecté
 if (!isset($_SESSION['proprio_id'])) {

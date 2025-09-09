@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: precompteProrietaire.php"); // redirection après connexion
         exit();
     } else {
-        $error = "❌ Email ou mot de passe incorrect.";
+        $error = " Email ou mot de passe incorrect.";
     }
 }
 ?>

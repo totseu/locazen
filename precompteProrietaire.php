@@ -28,7 +28,7 @@ $statut = $proprio['statut'];
 // Vérification stricte du statut
 $statuts_valides = ['en attente', 'validé', 'actif'];
 if (!in_array($statut, $statuts_valides, true)) {
-    echo "⚠️ Erreur : statut invalide détecté.";
+    echo " Erreur : statut invalide détecté.";
     exit;
 }
 ?>

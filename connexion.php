@@ -60,7 +60,7 @@ require 'connexionAction.php';
                     <select id="role" name="role" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500" require>
                         <option value="">Sélectionnez votre rôle</option>
                         <option value="client">Client</option>
-                        <option value="proprietaire">Propriétaire</option>
+<a href="/tailwind css/connexion.propritaire.php"><option value="proprietaire">Propriétaire</option></a>
                     </select>
                 </div>
 

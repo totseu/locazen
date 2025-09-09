@@ -26,7 +26,7 @@
                 <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
                 <ul><a href="/tailwind css/a_propos.html" class="text-white">A propos</a></ul>
                 <ul><a href="/tailwind css/contact.php" class="text-white">Contact</a></ul>
-                <ul><a href="/tailwind css/Tarifs.php" class="text-white">Tarif</a></ul>
+                <ul><a href="/tailwind css/tarif acceuille.php" class="text-white">Tarif</a></ul>
             </div>
             <div class="mt-5 mr-20 hidden md:block">
   <!-- Menu déroulant qui redirige automatiquement -->
