@@ -31,28 +31,6 @@
 <section class="mt-20">
      <!-- <h2 class="text-3xl font-bold text-blue-700 mb-6 text-center mt-10 ">Remplissez ce formulaire pour créer votre compte proprietaire sur Locazen </h2> -->
 
-     <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-?>
-
-<?php if (!empty($_SESSION['error'])): ?>
-    <div  class="fixed top-20 left-[50%] transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
-        <?= $_SESSION['error']; unset($_SESSION['error']); ?>
-    </div>
-
-
-   
-
-    
-<?php endif; ?>
-
-<?php if (!empty($_SESSION['success'])): ?>
-    <div  class="fixed top-20 left-[50%] transform -translate-x-1/2 bg-green-700 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
-        <?= $_SESSION['success']; unset($_SESSION['success']); ?>
-    </div>
-<?php endif; ?>
    
   <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
     <!-- <h1 class="text-2xl font-bold text-gray-800 mb-6">Vérification du Propriétaire</h1> -->

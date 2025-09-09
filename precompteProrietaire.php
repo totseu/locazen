@@ -1,28 +1,36 @@
 <?php
+// Toujours démarrer la session avant toute sortie
 
 require 'database.php';
 
 // Vérifie si le propriétaire est connecté
-if(!isset($_SESSION['proprio_id'])){
-    header("Location: connexion.proprietaire.php");
+if (!isset($_SESSION['proprio_id'])) {
+    header("Location: connexion_proprietaire.php");
     exit;
 }
 
 // Récupère le statut du propriétaire
-$id = $_SESSION['proprio_id'];
+$id = (int) $_SESSION['proprio_id'];
 $stmt = $bdd->prepare("SELECT Nom, statut FROM proprietaire WHERE id = ?");
 $stmt->execute([$id]);
 $proprio = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Si le compte n'existe pas
-if(!$proprio){
-    echo "Compte introuvable.";
+if (!$proprio) {
+    session_destroy(); // supprimer la session si l’utilisateur est introuvable
+    header("Location: connexion_proprietaire.php?error=compte_introuvable");
     exit;
 }
 
-$nom = htmlspecialchars($proprio['Nom']);
+$nom = htmlspecialchars($proprio['Nom'], ENT_QUOTES, 'UTF-8');
 $statut = $proprio['statut'];
 
+// Vérification stricte du statut
+$statuts_valides = ['en attente', 'validé', 'actif'];
+if (!in_array($statut, $statuts_valides, true)) {
+    echo "⚠️ Erreur : statut invalide détecté.";
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -43,6 +51,7 @@ $statut = $proprio['statut'];
         <a href="#" class="text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
         <a href="#tarifs" class="text-gray-700 hover:text-blue-600 font-medium">Tarifs</a>
         <a href="#publier" class="text-gray-700 hover:text-blue-600 font-medium">Publier</a>
+        <a href="changer_mots_de_passe_propri.php"  class="text-gray-700 hover:text-blue-600 font-medium">changer mots de passe </a>
       </div>
       <div>
         <a href="index.php" class="text-red-600 font-semibold hover:underline">Déconnexion</a>
@@ -52,7 +61,7 @@ $statut = $proprio['statut'];
 
   <main class="max-w-6xl mx-auto py-12 px-6">
 
-    <?php if($statut === 'en attente'): ?>
+    <?php if ($statut === 'en attente'): ?>
       <!-- Compte en attente -->
       <div class="bg-yellow-100 border-l-4 border-yellow-500 p-6 rounded-lg text-yellow-800">
         <h2 class="text-2xl font-bold mb-2">Bonjour <?= $nom ?> 👋</h2>
@@ -60,7 +69,7 @@ $statut = $proprio['statut'];
         <p>Vous recevrez un email dès que votre compte sera validé.</p>
       </div>
 
-    <?php elseif($statut === 'validé'): ?>
+    <?php elseif ($statut === 'validé'): ?>
       <!-- Compte validé mais pas encore abonné -->
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-800 mb-4">Bienvenue <?= $nom ?> 👋</h2>
@@ -105,14 +114,13 @@ $statut = $proprio['statut'];
         </section>
       </div>
 
-    <?php elseif($statut === 'actif'): ?>
+    <?php elseif ($statut === 'actif'): ?>
       <!-- Compte actif -->
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-gray-800 mb-4">Bienvenue <?= $nom ?> 👋</h2>
         <p class="text-gray-600 mb-6">Votre abonnement est actif. Vous pouvez maintenant publier vos biens et gérer votre espace propriétaire.</p>
         <a href="dashboard_proprio.php" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Accéder au dashboard</a>
       </div>
-
     <?php endif; ?>
 
   </main>
