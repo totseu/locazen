@@ -24,40 +24,7 @@ require 'connexionAction.php';
     <!-- Formulaire de connexion -->
     <section class="flex justify-center items-center min-h-screen  mt-10  ">
 
-
-
-
     
-     <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-?>
-
-<?php if (!empty($_SESSION['error'])): ?>
-    <div  class="fixed top-20 left-[50%] transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
-        <?= $_SESSION['error']; unset($_SESSION['error']); ?>
-    </div>
-
-
-   
-
-    
-<?php endif; ?>
-
-<?php if (!empty($_SESSION['success'])): ?>
-    <div  class="fixed top-20 left-[50%] transform -translate-x-1/2 bg-green-700 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
-        <?= $_SESSION['success']; unset($_SESSION['success']); ?>
-    </div>
-<?php endif; ?>
-
-
-
-
-
-
-
-
            <?php if (isset($erroMsg)) { ?>
     <div class="fixed top-20 left-[50%] transform -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg shadow-lg animate-bounce">
         <?= $erroMsg ?>
@@ -111,7 +78,7 @@ if (session_status() === PHP_SESSION_NONE) {
     </section>
 
     <!-- Footer -->
-<footer class="w-full bg-gray-100 py-4 mt-8">
+<footer class="w-full bg-gray-100 py-4 -mt-10">
   <div class="max-w-7xl mx-auto text-center text-gray-600 text-sm">
     &copy; 2025 Locazen. Tous droits réservés. | 
     <a href="#" class="text-blue-500 hover:underline">Politique de confidentialité</a> | 
