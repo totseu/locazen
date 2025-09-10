@@ -153,8 +153,8 @@ require 'database.php'; // connexion PDO ($bdd)
         <div id="formul_publier" class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-ls mt-2 hidden ">
     <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">📌 Publier un Bien Immobilier</h2>
 
-    <form action="publier_bien.php" method="POST" enctype="multipart/form-data">
-     
+   <form action="publier_bien.php" method="POST" enctype="multipart/form-data">
+
 
       <!-- Type de bien -->
       <div>

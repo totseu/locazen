@@ -66,7 +66,7 @@ Publiez vos biens, gagnez en visibilité et maximisez vos revenus avec nos formu
 <li>✔️ Assistance par email</li>
 </ul>
 <p class="text-3xl font-bold text-gray-800 mb-6">5 000 FCFA <span class="text-sm text-gray-500">/mois</span></p>
-<button onclick="payer('standard', 5000)" class="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Choisir</button>
+<button onclick="payer('business', 5000)" class="bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Choisir</button>
 </div>
 
 <!-- Premium -->
@@ -98,39 +98,29 @@ Publiez vos biens, gagnez en visibilité et maximisez vos revenus avec nos formu
 </div>
 </section>
 
-
 <script>
 function payer(formule, montant) {
     const proprioId = <?= json_encode($id_proprio) ?>;
     const email = <?= json_encode($proprio['Email']) ?>;
 
-    fetch('create_payment.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({
-            amount: montant,
-            formule: formule,
-            proprio_id: proprioId,
-            email: email
-        })
-    })
-    .then(response => response.json())
+   fetch('http://localhost/locazen/creer_paiement.php', {   // ✅ bon chemin
+   method: 'POST',
+   headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+   body: "amount=" + montant + "&formule=" + formule + "&proprio_id=" + proprioId + "&email=" + email
+})
+
+    .then(res => res.json())
     .then(data => {
-        if (data.authorization_url) {
-            // Redirection vers la page de paiement Notch Pay
+        if(data.authorization_url) {
             window.location.href = data.authorization_url;
         } else {
-            console.error(data);
-            alert("Erreur lors de la création du paiement.");
+            alert("Erreur paiement : " + (data.message || "Vérifie les logs serveur"));
+            console.log(data);
         }
-    })
-    .catch(err => {
-        console.error(err);
-        alert("Erreur réseau.");
     });
 }
-
 </script>
+
 
 </body>
 </html>

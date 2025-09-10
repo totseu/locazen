@@ -16,7 +16,7 @@ require 'connexionAction.php';
 <!-- Header / Nav -->
 <header class=" fixed w-screen z-50">
     <div class="flex justify-between items-center py-4 px-6 md:px-20 -mt-10">
-        <a href="/tailwind css/index.php"><img src="/tailwind css/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
+        <a href="/locazen/index.php"><img src="/locazen/src/assets/images/Logo moderne de Locazen avec maison (1).png" alt="Locazen" class="h-[70px] w-[90px] rounded-2xl"></a>
 </header>
 
 

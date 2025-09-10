@@ -24,9 +24,9 @@
             <div class="justify-center gap-5 mt-5 hidden md:flex md:ml-5">
                 <ul><a href="#" class="  text-blue-400">Acceuill</a></ul>
                 <!-- <ul><a href="/otg1.html" class="text-white">Recherce Logement</a></ul> -->
-                <ul><a href="/tailwind css/a_propos.html" class="text-white">A propos</a></ul>
-                <ul><a href="/tailwind css/contact.php" class="text-white">Contact</a></ul>
-                <ul><a href="/tailwind css/tarif acceuille.php" class="text-white">Tarif</a></ul>
+                <ul><a href="/locazen/a_propos.html" class="text-white">A propos</a></ul>
+                <ul><a href="/locazen/contact.php" class="text-white">Contact</a></ul>
+                <ul><a href="/locazen/tarif acceuille.php" class="text-white">Tarif</a></ul>
             </div>
             <div class="mt-5 mr-20 hidden md:block">
   <!-- Menu déroulant qui redirige automatiquement -->
@@ -36,12 +36,12 @@
     onchange="if(this.value) window.location.href=this.value">
     
     <option value="">Choisissez un rôle</option>
-    <option value="/tailwind css/incristion_client.php">Client</option>
-    <option value="/tailwind css/s'incristion_proprietaire.php">Propriétaire</option>
+    <option value="/locazen/incristion_client.php">Client</option>
+    <option value="/locazen/s'incristion_proprietaire.php">Propriétaire</option>
   </select>
 
   <!-- Bouton connexion -->
-  <a href="/tailwind css/connexion.php" 
+  <a href="/locazen/connexion.php" 
      class="pl-5 pr-5 pt-1 pb-1 bg-amber-500 rounded-md text-white inline-block ml-2 hover:bg-amber-600">
      Se connecter
   </a>
@@ -55,7 +55,7 @@
     <div class="h-18"> </div>
     <div class="relative h-screen">
       
-        <div class="absolute inset-0 bg-[url('/tailwind%20css/src/assets/images/ville%20de%20douala.jpg')] bg-cover bg-center h-[75vh]   ">
+        <div class="absolute inset-0 bg-[url('/locazen/src/assets/images/ville%20de%20douala.jpg')] bg-cover bg-center h-[75vh]   ">
          
             <div class="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))]"></div>
              <div id="menu" class="md:hidden  scale-0 bg-black w-[45%] ml-52 text-center z-50 p-10 px-10 rounded-3xl fixed transition-all duration-[1s] ease-in-out transform origin-top-right">
@@ -66,7 +66,7 @@
                 <ul><a href="/tailwind css/Tarifs.php" class="text-white">Tarif</a></ul>
                 <ul><a href="/tailwind css/s'incristion_client.html" class="text-white">client</a></ul>
                 <ul><a href="/tailwind css/s'incristion_client.html" class="text-white">Propriétaire</a></ul>
-                <ul><a href="/tailwind css/connexion.php" class="text-white">connexion</a></ul>
+                <ul><a href="/locazen/connexion.php" class="text-white">connexion</a></ul>
             </div>
               <script>
                 const amberger = document.getElementById("amberger");
@@ -101,7 +101,7 @@ Explorez. Réservez. Emménagez.</h1>
                             </select>
             <label for="date">date :</label>
             <input type="datetime-local" class="border border-white font-medium text-center">
-            <button><a href="/tailwind css/incristion_client.php" class=" bg-blue-600 p-2 relative md:left-6 rounded-2xl top-4 md:top-0">  <i class="fa-solid fa-magnifying-glass"></i> recherche</a></button>
+            <button><a href="/locazen/incristion_client.php" class=" bg-blue-600 p-2 relative md:left-6 rounded-2xl top-4 md:top-0">  <i class="fa-solid fa-magnifying-glass"></i> recherche</a></button>
         </form>
      </div>
 
@@ -129,7 +129,7 @@ Explorez. Réservez. Emménagez.</h1>
         
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/tailwind css/src/assets/images/appartement.jpg" alt="Appartement" class="w-full h-40 object-cover">
+          <img src="/locazen/src/assets/images/appartement.jpg" alt="Appartement" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Appartement</h3>
             <p class="text-gray-600 text-sm">Confort et modernité au cœur de la ville.</p>
@@ -138,7 +138,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/tailwind css/src/assets/images/villa.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <img src="/locazen/src/assets/images/villa.jpg" alt="Villa" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Villa</h3>
             <p class="text-gray-600 text-sm">Espace et luxe pour vos séjours.</p>
@@ -147,7 +147,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/tailwind css/src/assets/images/boutique presentation.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <img src="/locazen/src/assets/images/boutique presentation.jpg" alt="Villa" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Boutique</h3>
             <p class="text-gray-600 text-sm">Parfait pour les commercants.</p>
@@ -156,7 +156,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/tailwind css/src/assets/images/bureau vide.jpg" alt="Villa" class="w-full h-40 object-cover">
+          <img src="/locazen/src/assets/images/bureau vide.jpg" alt="Villa" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Bureau</h3>
             <p class="text-gray-600 text-sm">parfait pour les entreprises.</p>
@@ -165,7 +165,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/tailwind css/src/assets/images/studio.jpg" alt="Studio" class="w-full h-40 object-cover">
+          <img src="/locazen/src/assets/images/studio.jpg" alt="Studio" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Studio</h3>
             <p class="text-gray-600 text-sm">Idéal pour les courts séjours.</p>
@@ -174,7 +174,7 @@ Explorez. Réservez. Emménagez.</h1>
 
         <!-- Carte -->
         <div class="min-w-[250px] bg-white shadow-lg rounded-lg overflow-hidden">
-          <img src="/tailwind css/src/assets/images/maison familiale.jpg" alt="Maison" class="w-full h-40 object-cover">
+          <img src="/locazen/src/assets/images/maison familiale.jpg" alt="Maison" class="w-full h-40 object-cover">
           <div class="p-4">
             <h3 class="font-bold text-lg">Maison</h3>
             <p class="text-gray-600 text-sm">Parfait pour les familles.</p>
