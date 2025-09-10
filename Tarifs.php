@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'database.php';
 
 // Vérifie si le propriétaire est connecté
@@ -25,9 +24,10 @@ if ($proprio['statut'] !== 'validé') {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tarifs Propriétaire - Locazen</title>
-<script src="https://cdn.notchpay.com/v1/notchpay.js"></script>
 <link rel="stylesheet" href="src/css/output.css">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://checkout.notchpay.co/v1/checkout.js"></script>
+
 </head>
 <body class="bg-gray-50 font-sans">
 
@@ -98,24 +98,35 @@ Publiez vos biens, gagnez en visibilité et maximisez vos revenus avec nos formu
 </div>
 </section>
 
+
 <script>
 function payer(formule, montant) {
-    const publicKey = "pk_test.G3QKFEKozyw6PC1Vmk3gK3nMsRSNuQoDSoGluhdaqUzOUSFRIgefadhzorpe4oZs1TuOcX11D2MzUPVtdYs6WBE55dTZRkOn1eOaFmin674EVFP20xr6zrMBIyIkK";
-    const reference = "NOTCH_" + Date.now();
     const proprioId = <?= json_encode($id_proprio) ?>;
     const email = <?= json_encode($proprio['Email']) ?>;
 
-    NotchPay.pay({
-        publicKey: publicKey,
-        amount: montant,
-        currency: "XAF",
-        reference: reference,
-        customer: { id: proprioId, email: email },
-        metadata: { formule: formule }, // ENVOIE LA FORMULE AU WEBHOOK
-        callback: function(response) {
-            // Redirige vers une page de confirmation côté client
-            window.location.href = "confirmation.php?reference=" + response.reference;
+    fetch('create_payment.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            amount: montant,
+            formule: formule,
+            proprio_id: proprioId,
+            email: email
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.authorization_url) {
+            // Redirection vers la page de paiement Notch Pay
+            window.location.href = data.authorization_url;
+        } else {
+            console.error(data);
+            alert("Erreur lors de la création du paiement.");
         }
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Erreur réseau.");
     });
 }
 
